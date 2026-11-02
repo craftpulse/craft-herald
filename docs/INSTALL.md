@@ -1,34 +1,43 @@
 # Installation & Setup
 
-You can install Herald via the plugin store, or through Composer.
-
-## Craft Plugin Store
-
-To install **Herald**, navigate to the _Plugin Store_ section of your Craft control panel, search for `Herald`, and click the _Try_ button.
+Herald is installed from its GitHub repository with Composer. It is not listed on the Craft Plugin Store.
 
 ## Composer
 
-You can also add the package to your project using Composer and the command line.
+1. Add the repository and the package to your project's `composer.json`, merging them into any existing `repositories` and `require` keys:
 
-1. Open your terminal and go to your Craft project:
-
-```shell
-cd /path/to/project
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/craftpulse/craft-herald"
+        }
+    ],
+    "require": {
+        "craftpulse/craft-herald": "^5.0@alpha"
+    }
+}
 ```
 
-2. Tell Composer to require the plugin, then Craft to install it:
+The repository is public, so no SSH key or access token is needed.
+
+2. Tell Composer to fetch the plugin, then Craft to install it:
 
 ```shell
-composer require craftpulse/craft-herald
+composer update craftpulse/craft-herald
 php craft plugin/install herald
 ```
 
+The `@alpha` flag lets Composer install the current pre-release, starting with `5.0.0-alpha.1`. Drop it once a stable 5.0.0 is tagged.
+
 ## DDEV
 
-If your project runs in DDEV, run the same commands through DDEV from the project root:
+The same from the command line, through DDEV from the project root. The first two commands write the `repositories` and `require` entries above for you:
 
 ```shell
-ddev composer require craftpulse/craft-herald
+ddev composer config repositories.herald vcs https://github.com/craftpulse/craft-herald
+ddev composer require "craftpulse/craft-herald:^5.0@alpha"
 ddev craft plugin/install herald
 ```
 
