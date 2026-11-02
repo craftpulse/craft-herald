@@ -65,3 +65,14 @@ it('renders craftcms_ddev with the ddev SKILL.md content', function() {
 
     expect($envelope['messages'][0]['content']['text'])->toBe(Skills::content('ddev'));
 });
+
+it('renders craftcms_plugins with the craft-plugins SKILL.md content', function() {
+    // The plugin integration guides moved out of craft-site into their own
+    // skill; pin the prompt to the skill that now carries them.
+    $prompt = Herald::getInstance()->prompts->getByName('craftcms_plugins');
+    expect($prompt)->not->toBeNull();
+
+    $envelope = $prompt->render([]);
+
+    expect($envelope['messages'][0]['content']['text'])->toBe(Skills::content('craft-plugins'));
+});
