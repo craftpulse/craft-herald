@@ -148,7 +148,7 @@ In the Inspector, set:
 - **Command:** `docker`
 - **Arguments:** `exec -i ddev-<project>-web php /var/www/html/craft herald/serve`
 
-A successful `initialize` handshake reports `herald` with its version and the negotiated protocol revision: `2025-11-25` when the client requests it, or `2025-06-18` for an older client. On a Free install `tools/list` returns 33 entries and `prompts/list` returns 10. The `resources/list` count tracks the bundled corpus, so it moves with the version of `michtio/craftcms-claude-skills` that Composer resolved.
+A successful `initialize` handshake reports `herald` with its version and the negotiated protocol revision: `2025-11-25` when the client requests it, or `2025-06-18` for an older client. On a Free install `tools/list` returns 33 entries and `prompts/list` returns 13. The `resources/list` count tracks the bundled corpus, so it moves with the version of `michtio/craftcms-claude-skills` that Composer resolved.
 
 ## Troubleshooting
 

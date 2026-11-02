@@ -9,8 +9,8 @@ corpus in its description, so that one description moves with the
 corpus version below.
 
 - **Total tools:** 42 (33 Free, 9 Pro)
-- **Skills corpus:** `v1.6.2` (michtio/craftcms-claude-skills)
-- **Generated:** 2026-08-03T18:25:32+00:00
+- **Skills corpus:** `v1.22.0` (michtio/craftcms-claude-skills)
+- **Generated:** 2026-11-02T18:33:10+00:00
 
 ## `get_initial_context`
 
@@ -2646,7 +2646,7 @@ The full Craft permissions tree (built-in + plugin-registered) and the user-grou
 
 **Edition:** Free
 
-Full-text search across the bundled craft-skills corpus — 10 skills, their reference deep-dives, and 6 Claude Code agents. `mode: "search"` (default) returns ranked matches with a snippet and the resource URI for follow-up reads; `mode: "topics"` enumerates the corpus without scoring. Filter `kind` to `skill` / `reference` / `agent` to narrow. Element-stored Herald skills override bundled ones by handle and are included in the merged corpus.
+Full-text search across the bundled craft-skills corpus — 13 skills, their reference deep-dives, and 6 Claude Code agents. `mode: "search"` (default) returns ranked matches with a snippet and the resource URI for follow-up reads; `mode: "topics"` enumerates the corpus without scoring. Filter `kind` to `skill` / `reference` / `agent` to narrow. Element-stored Herald skills override bundled ones by handle and are included in the merged corpus.
 
 **Annotations:**
 

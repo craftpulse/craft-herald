@@ -7,9 +7,9 @@ One prompt is registered per bundled skill that herald maps to a
 prompt name, so the total moves with the skills corpus version
 below.
 
-- **Total prompts:** 10
-- **Skills corpus:** `v1.6.2` (michtio/craftcms-claude-skills)
-- **Generated:** 2026-08-03T18:25:32+00:00
+- **Total prompts:** 13
+- **Skills corpus:** `v1.22.0` (michtio/craftcms-claude-skills)
+- **Generated:** 2026-11-02T18:33:10+00:00
 
 ## `craftcms_cloud`
 
@@ -23,9 +23,21 @@ Content modeling principles for Craft CMS — sections, entry types, fields, mat
 
 The only written documentation for Garnish, Craft CMS's built-in Control Panel JavaScript toolkit — the class system, UI widgets (Modal, HUD, DisclosureMenu, Select), drag interactions, form components, and accessibility helpers.
 
+## `craftcms_pest`
+
+Testing Craft CMS plugins and modules with Pest and the markhuot/craft-pest-core harness: test isolation and database safety (rollback is opt-in, phpunit.xml.dist env pins, fail-closed database guards), installing the plugin under test, factories, HTTP, queue, and database assertions, and CI test jobs.
+
 ## `craftcms_php_standards`
 
 PHP coding standards for Craft CMS plugin and module development — PHPDocs, section headers, naming conventions, class organization, and ECS/PHPStan configuration.
+
+## `craftcms_plugin_release`
+
+Releasing Craft CMS plugins: the composer.json version key, tagging, Packagist propagation and the silent "Skipped tag" failure, GitHub release objects, branch promotion, shared-library release ordering, history rewrites, and path repositories.
+
+## `craftcms_plugins`
+
+Plugin integration guides for Craft CMS, distilled from full plugin documentation: configuration, Twig API, PHP API, migrations, deployment, and pitfalls for Formie, SEOmatic, Blitz, Feed Me, Imager-X, ImageOptimize, CKEditor, Sprig, Retour, Navigation, Hyper, Vite, Warp, and more. Use whenever a task names one of these plugins.
 
 ## `craftcms_setup`
 
@@ -33,7 +45,7 @@ Standard project setup playbook for new Craft CMS sites — DDEV bootstrap, plug
 
 ## `craftcms_templates`
 
-Complete Craft CMS front-end framework and methodology — content modeling, Twig templating, component architecture, headless setup, and 22 plugin integration guides distilled from full plugin documentation.
+Complete Craft CMS front-end framework and methodology: atomic design and template architecture, components, layout chains, content builders, image presets, Tailwind conventions, JavaScript boundaries, the Vite buildchain, front-end auth, and headless setup. Plugin-specific guidance lives in craftcms_plugins.
 
 ## `craftcms_twig_standards`
 
