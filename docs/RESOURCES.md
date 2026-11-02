@@ -11,7 +11,7 @@ per-install content that this reference never lists.
 
 - **Total resources:** 138
 - **Skills corpus:** `v1.22.0` (michtio/craftcms-claude-skills)
-- **Generated:** 2026-11-02T18:33:10+00:00
+- **Generated:** 2026-11-02T19:52:58+00:00
 
 | URI | Name | MIME | Description |
 | --- | ---- | ---- | ----------- |
@@ -147,9 +147,9 @@ per-install content that this reference never lists.
 | `craft-skills://servd/deploy-and-environments` | servd / deploy-and-environments | `text/markdown` | Deep-dive reference document `deploy-and-environments` from the servd skill. |
 | `craft-skills://servd/limitations` | servd / limitations | `text/markdown` | Deep-dive reference document `limitations` from the servd skill. |
 | `craft-skills://servd/local-dev` | servd / local-dev | `text/markdown` | Deep-dive reference document `local-dev` from the servd skill. |
-| `craft-skills://agents/craft-code-reviewer` | agents / craft-code-reviewer | `text/markdown` | Claude Code agent definition `craft-code-reviewer` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-code-reviewer-deep` | agents / craft-code-reviewer-deep | `text/markdown` | Claude Code agent definition `craft-code-reviewer-deep` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-debugger` | agents / craft-debugger | `text/markdown` | Claude Code agent definition `craft-debugger` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-feature-builder` | agents / craft-feature-builder | `text/markdown` | Claude Code agent definition `craft-feature-builder` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-planner` | agents / craft-planner | `text/markdown` | Claude Code agent definition `craft-planner` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-site-builder` | agents / craft-site-builder | `text/markdown` | Claude Code agent definition `craft-site-builder` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-code-reviewer` | agents / craft-code-reviewer | `text/markdown` | Claude Code agent definition `craft-code-reviewer`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-code-reviewer-deep` | agents / craft-code-reviewer-deep | `text/markdown` | Claude Code agent definition `craft-code-reviewer-deep`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-debugger` | agents / craft-debugger | `text/markdown` | Claude Code agent definition `craft-debugger`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-feature-builder` | agents / craft-feature-builder | `text/markdown` | Claude Code agent definition `craft-feature-builder`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-planner` | agents / craft-planner | `text/markdown` | Claude Code agent definition `craft-planner`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-site-builder` | agents / craft-site-builder | `text/markdown` | Claude Code agent definition `craft-site-builder`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |

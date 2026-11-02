@@ -9,7 +9,7 @@ below.
 
 - **Total prompts:** 13
 - **Skills corpus:** `v1.22.0` (michtio/craftcms-claude-skills)
-- **Generated:** 2026-11-02T18:38:16+00:00
+- **Generated:** 2026-11-02T19:52:58+00:00
 
 ## `craftcms_cloud`
 
