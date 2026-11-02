@@ -130,7 +130,7 @@ use Throwable;
  */
 #[IsDestructive]
 #[IsIdempotent(false)]
-#[Title('Users — list / get / create / update / delete with PII gating')]
+#[Title('Users: list / get / create / update / delete with PII gating')]
 class Users extends AbstractTool implements ContextAwareToolInterface
 {
     use ElevationGatedToolTrait;
@@ -247,15 +247,15 @@ class Users extends AbstractTool implements ContextAwareToolInterface
             'update / delete. Per-target permission gating delegated to Craft\'s native ' .
             'Elements::canSave / canView / canDelete plus a tool-layer admin-protection ' .
             'gate on update (User::canSave does NOT enforce non-admin-cannot-edit-admin ' .
-            'natively — added here). Sensitive fields (email/username on non-self, ' .
+            'natively; added here). Sensitive fields (email/username on non-self, ' .
             'active/suspended/pending/locked, newPassword on non-self) require ' .
             'administrateUsers. Admin promotion / demotion requires the caller is admin. ' .
             'Group assignments require assignUserGroup:{uid} on every newly added group; ' .
             'kept groups do not re-gate. PII fields (email, unverifiedEmail, lockout ' .
             'counters, passwordResetRequired) redacted per caller permission via ' .
-            '_serializeUser — viewUsers callers get no email; editUsers callers get ' .
+            '_serializeUser: viewUsers callers get no email; editUsers callers get ' .
             'email + lockout; administrateUsers gets passwordResetRequired; admin gets ' .
-            'all. Custom field values gated by Settings::$userCustomFieldAllowlist — ' .
+            'all. Custom field values gated by Settings::$userCustomFieldAllowlist: ' .
             'handles NOT on the allowlist are NEVER returned, even for admin callers. ' .
             'Credentials (password, verificationCode, newPassword) NEVER returned. ' .
             'Returns the serialised user on success; on validation failure returns ' .
@@ -282,7 +282,7 @@ class Users extends AbstractTool implements ContextAwareToolInterface
             // User resolution (get / update / delete — at least one required).
             'id' => Schema::integer()->description('User id. Resolves get / update / delete. First non-empty among id / uid / email / username wins.'),
             'uid' => Schema::string()->description('User uid. Alternative to `id`.'),
-            'email' => Schema::string()->description('Email. On `create`: required. On `get`: alternative lookup key (case-insensitive on MySQL, case-sensitive on Postgres — delegates to Craft\'s `getUserByUsernameOrEmail`). On `update`: mutating value; requires administrateUsers for non-self.'),
+            'email' => Schema::string()->description('Email. On `create`: required. On `get`: alternative lookup key (case-insensitive on MySQL, case-sensitive on Postgres; delegates to Craft\'s `getUserByUsernameOrEmail`). On `update`: mutating value; requires administrateUsers for non-self.'),
             'username' => Schema::string()->description('Username. On `get`: alternative lookup key. On `create`/`update`: mutating value; falls back to email when `useEmailAsUsername` is set; non-self update requires administrateUsers.'),
 
             // Name attributes.

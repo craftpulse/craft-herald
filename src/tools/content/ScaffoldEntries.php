@@ -60,7 +60,7 @@ use Throwable;
  */
 #[IsDestructive]
 #[IsIdempotent(false)]
-#[Title('Scaffold Entries — template-driven bulk create')]
+#[Title('Scaffold Entries: template-driven bulk create')]
 class ScaffoldEntries extends AbstractTool implements StreamableToolInterface
 {
     use IdempotencyTrait;
@@ -116,7 +116,7 @@ class ScaffoldEntries extends AbstractTool implements StreamableToolInterface
     {
         return 'Bulk-create N entries from a deterministic template. `template.title` and ' .
             '`template.slug` accept `{n}` and `{n:0Nd}` substitution (1-indexed counter; ' .
-            'zero-padded N digits). No Twig — the surface stays narrow and predictable. ' .
+            'zero-padded N digits). No Twig, so the surface stays narrow and predictable. ' .
             'Permission: per-row `saveEntries:{sectionUid}`. Hard cap 10,000 per call; ' .
             '`force: true` to bypass. Streams `notifications/progress` frames every ' .
             '`progressInterval` rows (default 100). Returns a terminal envelope with ' .

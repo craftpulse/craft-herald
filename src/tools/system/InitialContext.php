@@ -104,7 +104,7 @@ class InitialContext extends AbstractTool implements ContextAwareToolInterface
             'site handle, a thin sites/sections/element-types index, the bundled herald ' .
             'skill prompts (the moat content the LLM should consult when authoring against ' .
             'Craft), the `craft_exec` posture, and the effective command allowlist. Call ' .
-            'this first — it replaces three or four orientation tool calls with one.';
+            'this first: it replaces three or four orientation tool calls with one.';
     }
 
     /**
@@ -156,7 +156,7 @@ class InitialContext extends AbstractTool implements ContextAwareToolInterface
             'allowlist' => Schema::array(Schema::string())->required()
                 ->description('Effective allowlist of command-route glob patterns the `craft_command` tool may dispatch. Union of project-config defaults plus active runtime overrides.'),
             'hints' => Schema::array(Schema::string())->required()
-                ->description('Operating notes for the agent — when to invoke which prompts, which tools are stdio-only, etc.'),
+                ->description('Operating notes for the agent: when to invoke which prompts, which tools are stdio-only, etc.'),
         ])->toArray();
     }
 
@@ -282,13 +282,13 @@ class InitialContext extends AbstractTool implements ContextAwareToolInterface
     private function _hints(): array
     {
         return [
-            'Invoke the `craftcms_extending` prompt before authoring plugin or module PHP — it carries reverse-engineered internals you will not find in the public docs.',
+            'Invoke the `craftcms_extending` prompt before authoring plugin or module PHP: it carries reverse-engineered internals you will not find in the public docs.',
             'Invoke `craftcms_templates` for Twig / front-end work, and `craftcms_plugins` whenever a task names a third-party plugin (Formie, SEOmatic, Blitz, Feed Me, Sprig and the like); `craftcms_php_standards` and `craftcms_twig_standards` carry the coding conventions herald itself enforces.',
             'Use `search_skills` to find specific guidance across the bundled corpus without listing every resource.',
-            '`craft_exec` is stdio-only and dry-run-by-default — pass `confirm: true` to actually evaluate, plus `dangerous: true` for destructive expressions.',
+            '`craft_exec` is stdio-only and dry-run-by-default. Pass `confirm: true` to actually evaluate, plus `dangerous: true` for destructive expressions.',
             '`craft_command` only dispatches commands matching the effective allowlist (see `allowlist` above). Adding patterns requires admin access via the CP settings.',
-            'Schema changes (sections, entry types, fields) have no dedicated write tool: dispatch `sections/create`, `fields/*`, or a migration (`make/migration` then `migrate/up`) via `craft_command` — those routes author through Craft\'s service layer and Craft writes the project-config YAML itself. Never hand-edit `config/project/` YAML. Admin-level routes are refused when `allowAdminChanges` is false; author schema in dev and propagate via commit + `craft up`.',
-            'Content writes (entries, categories, tags, globals) are database state via the element API — they never touch project config and work regardless of `allowAdminChanges`.',
+            'Schema changes (sections, entry types, fields) have no dedicated write tool: dispatch `sections/create`, `fields/*`, or a migration (`make/migration` then `migrate/up`) via `craft_command`. Those routes author through Craft\'s service layer and Craft writes the project-config YAML itself. Never hand-edit `config/project/` YAML. Admin-level routes are refused when `allowAdminChanges` is false; author schema in dev and propagate via commit + `craft up`.',
+            'Content writes (entries, categories, tags, globals) are database state via the element API: they never touch project config and work regardless of `allowAdminChanges`.',
             'Read-only tools (`sections`, `entries`, `system_info`, etc.) are safe to invoke speculatively; mutating tools are stdio-only or Pro-gated.',
         ];
     }

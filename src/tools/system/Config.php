@@ -60,7 +60,7 @@ class Config extends AbstractTool
     {
         return 'Read curated Craft configuration. Modes: `general` (whitelisted ' .
             'GeneralConfig fields), `custom` (config/custom.php), `db` (host/name/driver/' .
-            'port — never user/password), `email` (transport adapter from project config), ' .
+            'port, never user/password), `email` (transport adapter from project config), ' .
             '`system_messages` (system email message keys). All output is secrets-redacted.';
     }
 

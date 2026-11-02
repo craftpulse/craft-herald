@@ -59,7 +59,7 @@ class EntryTypes extends AbstractTool
     public static function getDescription(): string
     {
         return 'List all Craft 5 entry types, get a single one by handle, or count them. ' .
-            'In Craft 5 entry types are decoupled from sections — they can be reused across ' .
+            'In Craft 5 entry types are decoupled from sections: they can be reused across ' .
             'sections, Matrix fields, and CKEditor nested entries. Single-handle mode returns ' .
             'the full field layout (tabs, fields per tab, conditions, and UI elements).';
     }

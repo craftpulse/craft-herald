@@ -84,7 +84,7 @@ use Throwable;
  */
 #[IsDestructive]
 #[IsIdempotent(false)]
-#[Title('Entry — create / update / delete / restore / apply_draft')]
+#[Title('Entry: create / update / delete / restore / apply_draft')]
 class Entry extends AbstractTool implements ContextAwareToolInterface
 {
     use ElevationGatedToolTrait;
@@ -133,7 +133,7 @@ class Entry extends AbstractTool implements ContextAwareToolInterface
             'create / update / restore / apply_draft, deleteEntries:{sectionUid} for delete. ' .
             'Returns the serialised entry on success; on field-level validation failure ' .
             'returns {success: false, errors: {handle: [messages]}, mode, id} rather than ' .
-            'throwing — the LLM iterates on field values until they validate. Throws only ' .
+            'throwing, so the LLM iterates on field values until they validate. Throws only ' .
             'for permission denial, missing arguments, mode misuse, or entry-not-found. ' .
             'Pass `fields: {handle: value}`; Craft normalises per field type at save time. ' .
             '`idempotencyKey` (create / update only) caches the result for 24h so safe ' .
@@ -163,10 +163,10 @@ class Entry extends AbstractTool implements ContextAwareToolInterface
             'siteHandle' => Schema::string()->description('Target site handle. Alternative to `siteId`.'),
 
             // Section / entry-type resolution (create only).
-            'sectionId' => Schema::integer()->description('Section id (create only — one of sectionId / sectionUid / sectionHandle required).'),
+            'sectionId' => Schema::integer()->description('Section id (create only; one of sectionId / sectionUid / sectionHandle required).'),
             'sectionUid' => Schema::string()->description('Section uid (create only).'),
             'sectionHandle' => Schema::string()->description('Section handle (create only).'),
-            'entryTypeId' => Schema::integer()->description('Entry-type id (create only — required when the section has multiple entry types).'),
+            'entryTypeId' => Schema::integer()->description('Entry-type id (create only; required when the section has multiple entry types).'),
             'entryTypeUid' => Schema::string()->description('Entry-type uid (create only).'),
             'entryTypeHandle' => Schema::string()->description('Entry-type handle (create only).'),
 

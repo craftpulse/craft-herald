@@ -51,7 +51,7 @@ class FieldTypes extends AbstractTool
      */
     public static function getDescription(): string
     {
-        return 'List every registered Craft field type class — built-in plus plugin-provided. ' .
+        return 'List every registered Craft field type class, built-in plus plugin-provided. ' .
             'For each: the class FQN, display name, supported translation methods, whether ' .
             'multi-instance, and whether relational. Use this to discover what field types ' .
             'are available before creating a new field.';

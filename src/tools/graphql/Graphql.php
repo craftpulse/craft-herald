@@ -60,8 +60,8 @@ class Graphql extends AbstractTool
     public static function getDescription(): string
     {
         return 'Read-only GraphQL introspection. Modes: `list_schemas` (id/name/uid/isPublic/' .
-            'scope summary), `get_sdl` (printed SDL — accepts `name` for a specific schema or ' .
-            'omits it for the public schema), `list_tokens` (token metadata only — names, ' .
+            'scope summary), `get_sdl` (printed SDL; accepts `name` for a specific schema or ' .
+            'omits it for the public schema), `list_tokens` (token metadata only: names, ' .
             'expiry, enabled flag, fingerprint; never the access-token value itself).';
     }
 

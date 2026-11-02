@@ -94,7 +94,7 @@ class AgentResource extends AbstractResource
     public function getDescription(): string
     {
         return sprintf(
-            'Claude Code agent definition `%s` — markdown with YAML frontmatter declaring the agent\'s name and one-line description, plus the systemic prompt body.',
+            'Claude Code agent definition `%s`: markdown with YAML frontmatter declaring the agent\'s name and one-line description, plus the systemic prompt body.',
             $this->_agent,
         );
     }

@@ -76,7 +76,7 @@ use Throwable;
  */
 #[IsDestructive]
 #[IsIdempotent(false)]
-#[Title('Address — list / get / create / update / delete (user-owned)')]
+#[Title('Address: list / get / create / update / delete (user-owned)')]
 class Address extends AbstractTool implements ContextAwareToolInterface
 {
     use ElevationGatedToolTrait;
@@ -140,11 +140,11 @@ class Address extends AbstractTool implements ContextAwareToolInterface
     {
         return 'Write tool for Craft addresses. Modes: list / get / create / update / delete ' .
             'on user-owned addresses. Per-owner permission gating delegated to Craft\'s ' .
-            'native Elements::canSave / canView / canDelete — for user-owned addresses this ' .
+            'native Elements::canSave / canView / canDelete; for user-owned addresses this ' .
             'resolves to editUsers on the owner. countryCode is validated at execute-time ' .
-            'against the ISO 3166-1 alpha-2 list — bad codes surface in the validation ' .
+            'against the ISO 3166-1 alpha-2 list. Bad codes surface in the validation ' .
             'envelope (errors.countryCode), not as a thrown error, so the LLM iterates. ' .
-            'Owner type: only `user` is supported — other owner types are rejected. ' .
+            'Owner type: only `user` is supported; other owner types are rejected. ' .
             'Address fields (countryCode, addressLine1, locality, etc.) pass through to ' .
             'Craft\'s save validation, which honours the per-country required-field map. ' .
             'Returns the serialised address on success; on validation failure returns ' .
@@ -186,18 +186,18 @@ class Address extends AbstractTool implements ContextAwareToolInterface
             'title' => Schema::string()->description('Human-readable label for the address card (e.g. `Home`, `Work`). Subject to the field layout\'s `title` requirement.'),
 
             // Address fields (full ISO 3166-1 coverage — see Craft's Address::defineRules()).
-            'countryCode' => Schema::string()->description('ISO 3166-1 alpha-2 country code (e.g. `US`, `BE`). Validated at execute-time. Required for create. Non-nullable on the underlying element — missing on save surfaces as a validation envelope.'),
+            'countryCode' => Schema::string()->description('ISO 3166-1 alpha-2 country code (e.g. `US`, `BE`). Validated at execute-time. Required for create. Non-nullable on the underlying element: missing on save surfaces as a validation envelope.'),
             'administrativeArea' => Schema::string()->description('State / province / region (per country format).'),
             'locality' => Schema::string()->description('City / town.'),
             'dependentLocality' => Schema::string()->description('Neighbourhood / district (per country format).'),
             'postalCode' => Schema::string()->description('Postal / ZIP code.'),
-            'sortingCode' => Schema::string()->description('Sorting code (per country format — rare).'),
+            'sortingCode' => Schema::string()->description('Sorting code (per country format, rare).'),
             'addressLine1' => Schema::string()->description('Street address line 1.'),
             'addressLine2' => Schema::string()->description('Street address line 2.'),
             'addressLine3' => Schema::string()->description('Street address line 3 (rare).'),
             'organization' => Schema::string()->description('Organisation name.'),
             'organizationTaxId' => Schema::string()->description('Organisation tax id (when the OrganizationTaxIdField is in the field layout).'),
-            'fullName' => Schema::string()->description('Full name (single-field mode — default).'),
+            'fullName' => Schema::string()->description('Full name (single-field mode, the default).'),
             'firstName' => Schema::string()->description('First name (when `showFirstAndLastNameFields` is enabled). Read AddressInterface::getGivenName() maps here.'),
             'lastName' => Schema::string()->description('Last name (when `showFirstAndLastNameFields` is enabled). Read AddressInterface::getFamilyName() maps here.'),
             'latitude' => Schema::string()->description('Latitude in decimal degrees (-90 to 90). String to preserve precision.'),
