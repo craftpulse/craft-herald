@@ -73,37 +73,37 @@ class Prompts extends Component
         ],
         'craft-garnish' => [
             'name' => 'craftcms_cp_javascript',
-            'description' => 'The only written documentation for Garnish, Craft CMS\'s built-in Control Panel JavaScript toolkit — the class system, UI widgets (Modal, HUD, DisclosureMenu, Select), drag interactions, form components, and accessibility helpers.',
+            'description' => 'The only written documentation for Garnish, Craft CMS\'s built-in Control Panel JavaScript toolkit: the class system, UI widgets (Modal, HUD, DisclosureMenu, Select), drag interactions, form components, and accessibility helpers.',
         ],
 
         // Tier 2 — supporting reference material.
         'craft-content-modeling' => [
             'name' => 'craftcms_content_modeling',
-            'description' => 'Content modeling principles for Craft CMS — sections, entry types, fields, matrices, relations, propagation, and how to design schemas that scale across editors and sites.',
+            'description' => 'Content modeling principles for Craft CMS: sections, entry types, fields, matrices, relations, propagation, and how to design schemas that scale across editors and sites.',
         ],
         'craft-php-guidelines' => [
             'name' => 'craftcms_php_standards',
-            'description' => 'PHP coding standards for Craft CMS plugin and module development — PHPDocs, section headers, naming conventions, class organization, and ECS/PHPStan configuration.',
+            'description' => 'PHP coding standards for Craft CMS plugin and module development: PHPDocs, section headers, naming conventions, class organization, and ECS/PHPStan configuration.',
         ],
         'craft-twig-guidelines' => [
             'name' => 'craftcms_twig_standards',
-            'description' => 'Twig coding standards for Craft CMS templates — template structure, naming, accessibility, performance, and how to keep templates clean as a project grows.',
+            'description' => 'Twig coding standards for Craft CMS templates: template structure, naming, accessibility, performance, and how to keep templates clean as a project grows.',
         ],
         'ddev' => [
             'name' => 'craftcms_ddev',
-            'description' => 'DDEV usage and troubleshooting for Craft CMS development — local environment setup, container management, common commands, and integration with composer/npm/craft tooling.',
+            'description' => 'DDEV usage and troubleshooting for Craft CMS development: local environment setup, container management, common commands, and integration with composer/npm/craft tooling.',
         ],
         'craft-project-setup' => [
             'name' => 'craftcms_setup',
-            'description' => 'Standard project setup playbook for new Craft CMS sites — DDEV bootstrap, plugin selection, project config conventions, and getting from zero to a working dev environment.',
+            'description' => 'Standard project setup playbook for new Craft CMS sites: DDEV bootstrap, plugin selection, project config conventions, and getting from zero to a working dev environment.',
         ],
         'servd' => [
             'name' => 'craftcms_servd',
-            'description' => 'Servd managed hosting for Craft CMS — git push-to-deploy with servd.yaml, the asset-storage plugin and CDN, static caching alongside Blitz, the local → staging → production workflow with uni-directional project config sync, and how Servd differs from Craft Cloud.',
+            'description' => 'Servd managed hosting for Craft CMS: git push-to-deploy with servd.yaml, the asset-storage plugin and CDN, static caching alongside Blitz, the local → staging → production workflow with uni-directional project config sync, and how Servd differs from Craft Cloud.',
         ],
         'craft-cloud' => [
             'name' => 'craftcms_cloud',
-            'description' => 'Craft Cloud, Pixel & Tonic\'s serverless hosting for Craft CMS — craft-cloud.yaml configuration, the Build → Migrate → Release deploy pipeline, edge image transforms and static caching, the ephemeral Cloud filesystem, plugin Cloud-compatibility requirements, and self-hosted → Cloud migration.',
+            'description' => 'Craft Cloud, Pixel & Tonic\'s serverless hosting for Craft CMS: craft-cloud.yaml configuration, the Build → Migrate → Release deploy pipeline, edge image transforms and static caching, the ephemeral Cloud filesystem, plugin Cloud-compatibility requirements, and self-hosted → Cloud migration.',
         ],
         'craft-pest' => [
             'name' => 'craftcms_pest',
