@@ -40,7 +40,8 @@
         "craftcms/ecs": "dev-main",
         "craftcms/generator": "^2.0",
         "craftcms/phpstan": "dev-main",
-        "pestphp/pest": "^4.6"
+        "pestphp/pest": "^4.6",
+        "phpstan/phpstan": "^1.12"
     },
     "autoload": {
         "psr-4": {
