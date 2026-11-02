@@ -283,7 +283,7 @@ class InitialContext extends AbstractTool implements ContextAwareToolInterface
     {
         return [
             'Invoke the `craftcms_extending` prompt before authoring plugin or module PHP — it carries reverse-engineered internals you will not find in the public docs.',
-            'Invoke `craftcms_templates` for Twig / front-end work; `craftcms_php_standards` and `craftcms_twig_standards` carry the coding conventions herald itself enforces.',
+            'Invoke `craftcms_templates` for Twig / front-end work, and `craftcms_plugins` whenever a task names a third-party plugin (Formie, SEOmatic, Blitz, Feed Me, Sprig and the like); `craftcms_php_standards` and `craftcms_twig_standards` carry the coding conventions herald itself enforces.',
             'Use `search_skills` to find specific guidance across the bundled corpus without listing every resource.',
             '`craft_exec` is stdio-only and dry-run-by-default — pass `confirm: true` to actually evaluate, plus `dangerous: true` for destructive expressions.',
             '`craft_command` only dispatches commands matching the effective allowlist (see `allowlist` above). Adding patterns requires admin access via the CP settings.',

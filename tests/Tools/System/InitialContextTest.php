@@ -138,3 +138,15 @@ it('emits human-actionable hints so the LLM knows where to look next', function(
         expect($hint)->toBeString()->not->toBeEmpty();
     }
 });
+
+it('routes plugin-named tasks to craftcms_plugins and names only registered prompts', function() {
+    $hints = implode("\n", $this->tool->execute([])['hints']);
+
+    expect($hints)->toContain('`craftcms_plugins`');
+
+    preg_match_all('/`(craftcms_[a-z_]+)`/', $hints, $matches);
+    expect($matches[1])->not->toBeEmpty();
+    foreach (array_unique($matches[1]) as $name) {
+        expect(Herald::getInstance()->prompts->getByName($name))->not->toBeNull();
+    }
+});
