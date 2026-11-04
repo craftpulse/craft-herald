@@ -2,6 +2,10 @@
 
 Herald is installed from its GitHub repository with Composer. It is not listed on the Craft Plugin Store.
 
+## Requirements
+
+Herald requires Craft CMS 5.10.8 or greater and PHP 8.2 or greater.
+
 ## Composer
 
 1. Add the repository and the package to your project's `composer.json`, merging them into any existing `repositories` and `require` keys:

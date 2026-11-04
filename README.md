@@ -19,7 +19,7 @@ Herald is a [Model Context Protocol](https://modelcontextprotocol.io/) server fo
 
 ### Craft CMS
 
-Herald requires Craft CMS 5.0.0 or greater.
+Herald requires Craft CMS 5.10.8 or greater.
 
 ### PHP
 

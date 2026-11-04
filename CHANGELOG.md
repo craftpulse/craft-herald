@@ -51,6 +51,7 @@
 - Added a complete uninstall: removing Herald drops its own tables and the element and field-layout rows behind authored skills, so nothing is left orphaned in Craft's core tables.
 - Herald is installed from its GitHub repository as a Composer `vcs` package, and is not listed on the Plugin Store.
 - Updated the bundled skills corpus, `michtio/craftcms-claude-skills`, to 1.22.0.
+- Herald now requires Craft CMS 5.10.8 or later.
 
 ### Content Management
 
