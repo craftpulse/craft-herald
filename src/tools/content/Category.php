@@ -68,7 +68,7 @@ use craftpulse\herald\tools\ToolException;
  */
 #[IsDestructive]
 #[IsIdempotent(false)]
-#[Title('Category — create / update / delete')]
+#[Title('Category: create / update / delete')]
 class Category extends AbstractTool implements ContextAwareToolInterface
 {
     use ElevationGatedToolTrait;
@@ -113,7 +113,7 @@ class Category extends AbstractTool implements ContextAwareToolInterface
             'permissions required: saveCategories:{groupUid} for create / update, ' .
             'deleteCategories:{groupUid} for delete. Returns the serialised category on ' .
             'success; on field-level validation failure returns {success: false, errors: ' .
-            '{handle: [messages]}, mode, id} rather than throwing — the LLM iterates on ' .
+            '{handle: [messages]}, mode, id} rather than throwing, so the LLM iterates on ' .
             'field values until they validate. Throws only for permission denial, missing ' .
             'arguments, mode misuse, or category-not-found. Pass `fields: {handle: value}`; ' .
             'Craft normalises per field type at save time. `parentId` must belong to the ' .
@@ -144,7 +144,7 @@ class Category extends AbstractTool implements ContextAwareToolInterface
             'siteHandle' => Schema::string()->description('Target site handle. Alternative to `siteId`.'),
 
             // Group resolution (create only).
-            'groupId' => Schema::integer()->description('Category group id (create only — one of groupId / groupUid / groupHandle required).'),
+            'groupId' => Schema::integer()->description('Category group id (create only; one of groupId / groupUid / groupHandle required).'),
             'groupUid' => Schema::string()->description('Category group uid (create only).'),
             'groupHandle' => Schema::string()->description('Category group handle (create only).'),
 

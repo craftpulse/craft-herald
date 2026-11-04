@@ -65,41 +65,53 @@ class Prompts extends Component
         ],
         'craft-site' => [
             'name' => 'craftcms_templates',
-            'description' => 'Complete Craft CMS front-end framework and methodology — content modeling, Twig templating, component architecture, headless setup, and 22 plugin integration guides distilled from full plugin documentation.',
+            'description' => 'Complete Craft CMS front-end framework and methodology: atomic design and template architecture, components, layout chains, content builders, image presets, Tailwind conventions, JavaScript boundaries, the Vite buildchain, front-end auth, and headless setup. Plugin-specific guidance lives in craftcms_plugins.',
+        ],
+        'craft-plugins' => [
+            'name' => 'craftcms_plugins',
+            'description' => 'Plugin integration guides for Craft CMS, distilled from full plugin documentation: configuration, Twig API, PHP API, migrations, deployment, and pitfalls for Formie, SEOmatic, Blitz, Feed Me, Imager-X, ImageOptimize, CKEditor, Sprig, Retour, Navigation, Hyper, Vite, Warp, and more. Use whenever a task names one of these plugins.',
         ],
         'craft-garnish' => [
             'name' => 'craftcms_cp_javascript',
-            'description' => 'The only written documentation for Garnish, Craft CMS\'s built-in Control Panel JavaScript toolkit — the class system, UI widgets (Modal, HUD, DisclosureMenu, Select), drag interactions, form components, and accessibility helpers.',
+            'description' => 'The only written documentation for Garnish, Craft CMS\'s built-in Control Panel JavaScript toolkit: the class system, UI widgets (Modal, HUD, DisclosureMenu, Select), drag interactions, form components, and accessibility helpers.',
         ],
 
         // Tier 2 — supporting reference material.
         'craft-content-modeling' => [
             'name' => 'craftcms_content_modeling',
-            'description' => 'Content modeling principles for Craft CMS — sections, entry types, fields, matrices, relations, propagation, and how to design schemas that scale across editors and sites.',
+            'description' => 'Content modeling principles for Craft CMS: sections, entry types, fields, matrices, relations, propagation, and how to design schemas that scale across editors and sites.',
         ],
         'craft-php-guidelines' => [
             'name' => 'craftcms_php_standards',
-            'description' => 'PHP coding standards for Craft CMS plugin and module development — PHPDocs, section headers, naming conventions, class organization, and ECS/PHPStan configuration.',
+            'description' => 'PHP coding standards for Craft CMS plugin and module development: PHPDocs, section headers, naming conventions, class organization, and ECS/PHPStan configuration.',
         ],
         'craft-twig-guidelines' => [
             'name' => 'craftcms_twig_standards',
-            'description' => 'Twig coding standards for Craft CMS templates — template structure, naming, accessibility, performance, and how to keep templates clean as a project grows.',
+            'description' => 'Twig coding standards for Craft CMS templates: template structure, naming, accessibility, performance, and how to keep templates clean as a project grows.',
         ],
         'ddev' => [
             'name' => 'craftcms_ddev',
-            'description' => 'DDEV usage and troubleshooting for Craft CMS development — local environment setup, container management, common commands, and integration with composer/npm/craft tooling.',
+            'description' => 'DDEV usage and troubleshooting for Craft CMS development: local environment setup, container management, common commands, and integration with composer/npm/craft tooling.',
         ],
         'craft-project-setup' => [
             'name' => 'craftcms_setup',
-            'description' => 'Standard project setup playbook for new Craft CMS sites — DDEV bootstrap, plugin selection, project config conventions, and getting from zero to a working dev environment.',
+            'description' => 'Standard project setup playbook for new Craft CMS sites: DDEV bootstrap, plugin selection, project config conventions, and getting from zero to a working dev environment.',
         ],
         'servd' => [
             'name' => 'craftcms_servd',
-            'description' => 'Servd managed hosting for Craft CMS — git push-to-deploy with servd.yaml, the asset-storage plugin and CDN, static caching alongside Blitz, the local → staging → production workflow with uni-directional project config sync, and how Servd differs from Craft Cloud.',
+            'description' => 'Servd managed hosting for Craft CMS: git push-to-deploy with servd.yaml, the asset-storage plugin and CDN, static caching alongside Blitz, the local → staging → production workflow with uni-directional project config sync, and how Servd differs from Craft Cloud.',
         ],
         'craft-cloud' => [
             'name' => 'craftcms_cloud',
-            'description' => 'Craft Cloud, Pixel & Tonic\'s serverless hosting for Craft CMS — craft-cloud.yaml configuration, the Build → Migrate → Release deploy pipeline, edge image transforms and static caching, the ephemeral Cloud filesystem, plugin Cloud-compatibility requirements, and self-hosted → Cloud migration.',
+            'description' => 'Craft Cloud, Pixel & Tonic\'s serverless hosting for Craft CMS: craft-cloud.yaml configuration, the Build → Migrate → Release deploy pipeline, edge image transforms and static caching, the ephemeral Cloud filesystem, plugin Cloud-compatibility requirements, and self-hosted → Cloud migration.',
+        ],
+        'craft-pest' => [
+            'name' => 'craftcms_pest',
+            'description' => 'Testing Craft CMS plugins and modules with Pest and the markhuot/craft-pest-core harness: test isolation and database safety (rollback is opt-in, phpunit.xml.dist env pins, fail-closed database guards), installing the plugin under test, factories, HTTP, queue, and database assertions, and CI test jobs.',
+        ],
+        'craft-plugin-release' => [
+            'name' => 'craftcms_plugin_release',
+            'description' => 'Releasing Craft CMS plugins: the composer.json version key, tagging, Packagist propagation and the silent "Skipped tag" failure, GitHub release objects, branch promotion, shared-library release ordering, history rewrites, and path repositories.',
         ],
     ];
 

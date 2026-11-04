@@ -74,7 +74,7 @@ use Michtio\CraftCmsClaudeSkills\Skills as BundledSkills;
  */
 #[IsDestructive]
 #[IsIdempotent(false)]
-#[Title('Skill — list / get / create / update / delete (Herald skills)')]
+#[Title('Skill: list / get / create / update / delete (Herald skills)')]
 class Skill extends AbstractTool implements ContextAwareToolInterface
 {
     use ElevationGatedToolTrait;

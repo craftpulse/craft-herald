@@ -263,7 +263,7 @@ class Resave extends AbstractTool implements ContextAwareToolInterface, Streamab
             'to a 60Hz wire-level throttle); non-streaming clients get the same terminal ' .
             'envelope without the intermediate frames. `queue: true` and the field-' .
             'rewrite options (`set`, `to`, `ifEmpty`, `ifInvalid`, `propagateTo`, ' .
-            '`toDefault`, `setEnabledForSite`) are not supported — use `craft_command` ' .
+            '`toDefault`, `setEnabledForSite`) are not supported; use `craft_command` ' .
             'for raw controller access.';
     }
 

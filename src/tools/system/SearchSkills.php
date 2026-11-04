@@ -94,7 +94,7 @@ class SearchSkills extends AbstractTool
         $skillCount = count(BundledSkills::skillNames());
         $agentCount = count(BundledSkills::agentNames());
 
-        return "Full-text search across the bundled craft-skills corpus — {$skillCount} " .
+        return "Full-text search across the bundled craft-skills corpus: {$skillCount} " .
             "skills, their reference deep-dives, and {$agentCount} Claude Code agents. " .
             '`mode: "search"` (default) returns ranked matches with a snippet and the ' .
             'resource URI for follow-up reads; `mode: "topics"` enumerates the corpus ' .

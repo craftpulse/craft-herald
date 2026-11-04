@@ -303,7 +303,7 @@ class Diagnostics extends AbstractTool
             'action' => Schema::string()
                 ->enum(self::MANAGE_QUEUE_ACTIONS)
                 ->description('Required for `type=manage_queue`. `release` deletes the job; ' .
-                    'Craft has no `cancel()` — `release` IS the cancel action.'),
+                    'Craft has no `cancel()`, so `release` IS the cancel action.'),
             'jobId' => Schema::string()
                 ->description('Queue row id (string). Required for `manage_queue` action=retry / release.'),
             'limit' => Schema::integer()->minimum(1)->maximum(self::MAX_LIMIT),

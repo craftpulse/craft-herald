@@ -104,7 +104,7 @@ use Throwable;
  */
 #[IsDestructive]
 #[IsIdempotent(false)]
-#[Title('Bulk Entries — query-driven set_status / update_fields / relate / migrate')]
+#[Title('Bulk Entries: query-driven set_status / update_fields / relate / migrate')]
 class BulkEntries extends AbstractTool implements ContextAwareToolInterface, StreamableToolInterface
 {
     use ElevationGatedToolTrait;
@@ -201,12 +201,12 @@ class BulkEntries extends AbstractTool implements ContextAwareToolInterface, Str
     public static function getDescription(): string
     {
         return 'Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: ' .
-            'set_status (toggle the `enabled` flag — set enabled or disabled; `pending` ' .
+            'set_status (toggle the `enabled` flag to set enabled or disabled; `pending` ' .
             'and `expired` are not status flips, drive postDate / expiryDate via ' .
             'update_fields instead) / update_fields (pass-through `fields: {handle: value}` ' .
             'to setFieldValues) / relate (apply ' .
             'replace / add / remove on a relation field) / migrate (move entries to a ' .
-            'new section + entry type — defaults to dryRun:true). Permission: per-row ' .
+            'new section + entry type; defaults to dryRun:true). Permission: per-row ' .
             '`saveEntries:{sectionUid}`. Denied rows go to `skipped[]` by default; pass ' .
             '`onPermissionDenied: "fail"` to abort. Hard cap 10,000 rows per call; ' .
             '`force: true` to bypass. Streams `notifications/progress` frames every ' .
@@ -235,53 +235,53 @@ class BulkEntries extends AbstractTool implements ContextAwareToolInterface, Str
             'query' => Schema::object([
                 'section' => Schema::string()->description('Section handle (single).'),
                 'entryType' => Schema::string()->description('Entry-type handle (single).'),
-                'status' => Schema::any()->description('Status filter — string or array of strings (live / pending / expired / disabled).'),
+                'status' => Schema::any()->description('Status filter: string or array of strings (live / pending / expired / disabled).'),
                 'search' => Schema::string()->description('Pass-through to ElementQuery::search().'),
                 'ids' => Schema::array(Schema::integer())->description('Restrict to these element IDs.'),
                 'authorId' => Schema::integer()->description('Author user id.'),
                 'dateCreated' => Schema::object([
                     'gte' => Schema::string(),
                     'lte' => Schema::string(),
-                ])->description('Range filter — ISO 8601 datetimes.'),
+                ])->description('Range filter: ISO 8601 datetimes.'),
                 'dateUpdated' => Schema::object([
                     'gte' => Schema::string(),
                     'lte' => Schema::string(),
-                ])->description('Range filter — ISO 8601 datetimes.'),
+                ])->description('Range filter: ISO 8601 datetimes.'),
                 'postDate' => Schema::object([
                     'gte' => Schema::string(),
                     'lte' => Schema::string(),
-                ])->description('Range filter — ISO 8601 datetimes.'),
+                ])->description('Range filter: ISO 8601 datetimes.'),
                 'expiryDate' => Schema::object([
                     'gte' => Schema::string(),
                     'lte' => Schema::string(),
-                ])->description('Range filter — ISO 8601 datetimes.'),
+                ])->description('Range filter: ISO 8601 datetimes.'),
             ])
                 ->additionalProperties(false)
                 ->required()
-                ->description('Filter shape — at minimum one selector should be present, otherwise the cap-check rejects the unbounded query.'),
+                ->description('Filter shape: at minimum one selector should be present, otherwise the cap-check rejects the unbounded query.'),
 
             'siteId' => Schema::any()->description('Site id (int), site handle (string), or `"*"` for all sites. Defaults to primary.'),
 
             // Mode-specific arguments.
             'status' => Schema::string()
                 ->enum(self::STATUSES)
-                ->description('set_status only — new status for every visited row.'),
+                ->description('set_status only: new status for every visited row.'),
             'fields' => Schema::object()
                 ->additionalProperties(true)
-                ->description('update_fields only — `{handle: value}` map forwarded to setFieldValues.'),
+                ->description('update_fields only: `{handle: value}` map forwarded to setFieldValues.'),
             'targetField' => Schema::string()
-                ->description('relate only — relation field handle.'),
+                ->description('relate only: relation field handle.'),
             'targetIds' => Schema::array(Schema::integer())
-                ->description('relate only — element IDs to relate to.'),
+                ->description('relate only: element IDs to relate to.'),
             'mergeStrategy' => Schema::string()
                 ->enum(self::MERGE_STRATEGIES)
-                ->description('relate only — relation merge strategy. Defaults to `replace`.'),
+                ->description('relate only: relation merge strategy. Defaults to `replace`.'),
             'toSectionUid' => Schema::string()
-                ->description('migrate only — target section UID.'),
+                ->description('migrate only: target section UID.'),
             'toEntryTypeUid' => Schema::string()
-                ->description('migrate only — target entry type UID.'),
+                ->description('migrate only: target entry type UID.'),
             'dryRun' => Schema::boolean()
-                ->description('migrate only — preview without saving. Defaults to true.'),
+                ->description('migrate only: preview without saving. Defaults to true.'),
 
             // Cross-mode operational flags.
             'force' => Schema::boolean()->description('Override the 10,000-row cap. Defaults to false.'),

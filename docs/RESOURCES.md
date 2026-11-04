@@ -9,9 +9,9 @@ with the corpus version below. An install also exposes one resource
 per skill authored as a `herald_skills` element, and those are
 per-install content that this reference never lists.
 
-- **Total resources:** 98
-- **Skills corpus:** `v1.6.2` (michtio/craftcms-claude-skills)
-- **Generated:** 2026-08-03T18:25:32+00:00
+- **Total resources:** 138
+- **Skills corpus:** `v1.22.0` (michtio/craftcms-claude-skills)
+- **Generated:** 2026-11-02T19:52:58+00:00
 
 | URI | Name | MIME | Description |
 | --- | ---- | ---- | ----------- |
@@ -24,12 +24,14 @@ per-install content that this reference never lists.
 | `craft-skills://craft-cloud/deploy-pipeline` | craft-cloud / deploy-pipeline | `text/markdown` | Deep-dive reference document `deploy-pipeline` from the craft-cloud skill. |
 | `craft-skills://craft-cloud/domains` | craft-cloud / domains | `text/markdown` | Deep-dive reference document `domains` from the craft-cloud skill. |
 | `craft-skills://craft-cloud/extension` | craft-cloud / extension | `text/markdown` | Deep-dive reference document `extension` from the craft-cloud skill. |
+| `craft-skills://craft-cloud/headless` | craft-cloud / headless | `text/markdown` | Deep-dive reference document `headless` from the craft-cloud skill. |
 | `craft-skills://craft-cloud/limitations` | craft-cloud / limitations | `text/markdown` | Deep-dive reference document `limitations` from the craft-cloud skill. |
 | `craft-skills://craft-cloud/local-dev` | craft-cloud / local-dev | `text/markdown` | Deep-dive reference document `local-dev` from the craft-cloud skill. |
 | `craft-skills://craft-cloud/migration` | craft-cloud / migration | `text/markdown` | Deep-dive reference document `migration` from the craft-cloud skill. |
 | `craft-skills://craft-cloud/plugin-development` | craft-cloud / plugin-development | `text/markdown` | Deep-dive reference document `plugin-development` from the craft-cloud skill. |
 | `craft-skills://craft-content-modeling` | craft-content-modeling | `text/markdown` | Top-level router for the craft-content-modeling skill (SKILL.md). Lists when to load each reference document and the cross-cutting pitfalls that apply across them. |
 | `craft-skills://craft-content-modeling/content-patterns` | craft-content-modeling / content-patterns | `text/markdown` | Deep-dive reference document `content-patterns` from the craft-content-modeling skill. |
+| `craft-skills://craft-content-modeling/element-index-sources` | craft-content-modeling / element-index-sources | `text/markdown` | Deep-dive reference document `element-index-sources` from the craft-content-modeling skill. |
 | `craft-skills://craft-content-modeling/field-types` | craft-content-modeling / field-types | `text/markdown` | Deep-dive reference document `field-types` from the craft-content-modeling skill. |
 | `craft-skills://craft-content-modeling/infrastructure` | craft-content-modeling / infrastructure | `text/markdown` | Deep-dive reference document `infrastructure` from the craft-content-modeling skill. |
 | `craft-skills://craft-content-modeling/object-templates` | craft-content-modeling / object-templates | `text/markdown` | Deep-dive reference document `object-templates` from the craft-content-modeling skill. |
@@ -41,12 +43,47 @@ per-install content that this reference never lists.
 | `craft-skills://craft-garnish/integration` | craft-garnish / integration | `text/markdown` | Deep-dive reference document `integration` from the craft-garnish skill. |
 | `craft-skills://craft-garnish/ui-widgets` | craft-garnish / ui-widgets | `text/markdown` | Deep-dive reference document `ui-widgets` from the craft-garnish skill. |
 | `craft-skills://craft-garnish/utilities` | craft-garnish / utilities | `text/markdown` | Deep-dive reference document `utilities` from the craft-garnish skill. |
+| `craft-skills://craft-pest` | craft-pest | `text/markdown` | Top-level router for the craft-pest skill (SKILL.md). Lists when to load each reference document and the cross-cutting pitfalls that apply across them. |
+| `craft-skills://craft-pest/ci` | craft-pest / ci | `text/markdown` | Deep-dive reference document `ci` from the craft-pest skill. |
+| `craft-skills://craft-pest/craft-state` | craft-pest / craft-state | `text/markdown` | Deep-dive reference document `craft-state` from the craft-pest skill. |
+| `craft-skills://craft-pest/isolation` | craft-pest / isolation | `text/markdown` | Deep-dive reference document `isolation` from the craft-pest skill. |
+| `craft-skills://craft-pest/patterns` | craft-pest / patterns | `text/markdown` | Deep-dive reference document `patterns` from the craft-pest skill. |
+| `craft-skills://craft-pest/shared-state` | craft-pest / shared-state | `text/markdown` | Deep-dive reference document `shared-state` from the craft-pest skill. |
 | `craft-skills://craft-php-guidelines` | craft-php-guidelines | `text/markdown` | Top-level router for the craft-php-guidelines skill (SKILL.md). Lists when to load each reference document and the cross-cutting pitfalls that apply across them. |
+| `craft-skills://craft-php-guidelines/authorization-parity` | craft-php-guidelines / authorization-parity | `text/markdown` | Deep-dive reference document `authorization-parity` from the craft-php-guidelines skill. |
 | `craft-skills://craft-php-guidelines/class-organization` | craft-php-guidelines / class-organization | `text/markdown` | Deep-dive reference document `class-organization` from the craft-php-guidelines skill. |
 | `craft-skills://craft-php-guidelines/naming-conventions` | craft-php-guidelines / naming-conventions | `text/markdown` | Deep-dive reference document `naming-conventions` from the craft-php-guidelines skill. |
 | `craft-skills://craft-php-guidelines/phpdoc-standards` | craft-php-guidelines / phpdoc-standards | `text/markdown` | Deep-dive reference document `phpdoc-standards` from the craft-php-guidelines skill. |
 | `craft-skills://craft-php-guidelines/templates-and-patterns` | craft-php-guidelines / templates-and-patterns | `text/markdown` | Deep-dive reference document `templates-and-patterns` from the craft-php-guidelines skill. |
 | `craft-skills://craft-php-guidelines/tooling` | craft-php-guidelines / tooling | `text/markdown` | Deep-dive reference document `tooling` from the craft-php-guidelines skill. |
+| `craft-skills://craft-plugin-release` | craft-plugin-release | `text/markdown` | Top-level router for the craft-plugin-release skill (SKILL.md). Lists when to load each reference document and the cross-cutting pitfalls that apply across them. |
+| `craft-skills://craft-plugin-release/history-rewrites` | craft-plugin-release / history-rewrites | `text/markdown` | Deep-dive reference document `history-rewrites` from the craft-plugin-release skill. |
+| `craft-skills://craft-plugin-release/path-repositories` | craft-plugin-release / path-repositories | `text/markdown` | Deep-dive reference document `path-repositories` from the craft-plugin-release skill. |
+| `craft-skills://craft-plugins` | craft-plugins | `text/markdown` | Top-level router for the craft-plugins skill (SKILL.md). Lists when to load each reference document and the cross-cutting pitfalls that apply across them. |
+| `craft-skills://craft-plugins/amazon-ses` | craft-plugins / amazon-ses | `text/markdown` | Deep-dive reference document `amazon-ses` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/blitz` | craft-plugins / blitz | `text/markdown` | Deep-dive reference document `blitz` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/cache-igniter` | craft-plugins / cache-igniter | `text/markdown` | Deep-dive reference document `cache-igniter` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/ckeditor` | craft-plugins / ckeditor | `text/markdown` | Deep-dive reference document `ckeditor` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/colour-swatches` | craft-plugins / colour-swatches | `text/markdown` | Deep-dive reference document `colour-swatches` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/element-api` | craft-plugins / element-api | `text/markdown` | Deep-dive reference document `element-api` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/elements-panel` | craft-plugins / elements-panel | `text/markdown` | Deep-dive reference document `elements-panel` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/embedded-assets` | craft-plugins / embedded-assets | `text/markdown` | Deep-dive reference document `embedded-assets` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/feed-me` | craft-plugins / feed-me | `text/markdown` | Deep-dive reference document `feed-me` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/formie` | craft-plugins / formie | `text/markdown` | Deep-dive reference document `formie` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/hyper` | craft-plugins / hyper | `text/markdown` | Deep-dive reference document `hyper` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/image-optimize` | craft-plugins / image-optimize | `text/markdown` | Deep-dive reference document `image-optimize` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/imager-x` | craft-plugins / imager-x | `text/markdown` | Deep-dive reference document `imager-x` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/knock-knock` | craft-plugins / knock-knock | `text/markdown` | Deep-dive reference document `knock-knock` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/navigation` | craft-plugins / navigation | `text/markdown` | Deep-dive reference document `navigation` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/password-policy` | craft-plugins / password-policy | `text/markdown` | Deep-dive reference document `password-policy` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/retour` | craft-plugins / retour | `text/markdown` | Deep-dive reference document `retour` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/seomatic` | craft-plugins / seomatic | `text/markdown` | Deep-dive reference document `seomatic` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/sherlock` | craft-plugins / sherlock | `text/markdown` | Deep-dive reference document `sherlock` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/sprig` | craft-plugins / sprig | `text/markdown` | Deep-dive reference document `sprig` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/timeloop` | craft-plugins / timeloop | `text/markdown` | Deep-dive reference document `timeloop` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/typogrify` | craft-plugins / typogrify | `text/markdown` | Deep-dive reference document `typogrify` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/vite` | craft-plugins / vite | `text/markdown` | Deep-dive reference document `vite` from the craft-plugins skill. |
+| `craft-skills://craft-plugins/warp` | craft-plugins / warp | `text/markdown` | Deep-dive reference document `warp` from the craft-plugins skill. |
 | `craft-skills://craft-project-setup` | craft-project-setup | `text/markdown` | Top-level router for the craft-project-setup skill (SKILL.md). Lists when to load each reference document and the cross-cutting pitfalls that apply across them. |
 | `craft-skills://craft-site` | craft-site | `text/markdown` | Top-level router for the craft-site skill (SKILL.md). Lists when to load each reference document and the cross-cutting pitfalls that apply across them. |
 | `craft-skills://craft-site/atomic-design` | craft-site / atomic-design | `text/markdown` | Deep-dive reference document `atomic-design` from the craft-site skill. |
@@ -57,6 +94,7 @@ per-install content that this reference never lists.
 | `craft-skills://craft-site/component-inventory` | craft-site / component-inventory | `text/markdown` | Deep-dive reference document `component-inventory` from the craft-site skill. |
 | `craft-skills://craft-site/composition-patterns` | craft-site / composition-patterns | `text/markdown` | Deep-dive reference document `composition-patterns` from the craft-site skill. |
 | `craft-skills://craft-site/element-partials` | craft-site / element-partials | `text/markdown` | Deep-dive reference document `element-partials` from the craft-site skill. |
+| `craft-skills://craft-site/example-templates` | craft-site / example-templates | `text/markdown` | Deep-dive reference document `example-templates` from the craft-site skill. |
 | `craft-skills://craft-site/feeds` | craft-site / feeds | `text/markdown` | Deep-dive reference document `feeds` from the craft-site skill. |
 | `craft-skills://craft-site/headless` | craft-site / headless | `text/markdown` | Deep-dive reference document `headless` from the craft-site skill. |
 | `craft-skills://craft-site/image-presets` | craft-site / image-presets | `text/markdown` | Deep-dive reference document `image-presets` from the craft-site skill. |
@@ -64,6 +102,7 @@ per-install content that this reference never lists.
 | `craft-skills://craft-site/multi-site-patterns` | craft-site / multi-site-patterns | `text/markdown` | Deep-dive reference document `multi-site-patterns` from the craft-site skill. |
 | `craft-skills://craft-site/search` | craft-site / search | `text/markdown` | Deep-dive reference document `search` from the craft-site skill. |
 | `craft-skills://craft-site/tailwind-conventions` | craft-site / tailwind-conventions | `text/markdown` | Deep-dive reference document `tailwind-conventions` from the craft-site skill. |
+| `craft-skills://craft-site/template-caching` | craft-site / template-caching | `text/markdown` | Deep-dive reference document `template-caching` from the craft-site skill. |
 | `craft-skills://craft-site/third-party-integration` | craft-site / third-party-integration | `text/markdown` | Deep-dive reference document `third-party-integration` from the craft-site skill. |
 | `craft-skills://craft-site/twig-collections` | craft-site / twig-collections | `text/markdown` | Deep-dive reference document `twig-collections` from the craft-site skill. |
 | `craft-skills://craft-site/vite-buildchain` | craft-site / vite-buildchain | `text/markdown` | Deep-dive reference document `vite-buildchain` from the craft-site skill. |
@@ -92,6 +131,7 @@ per-install content that this reference never lists.
 | `craft-skills://craftcms/field-types-custom` | craftcms / field-types-custom | `text/markdown` | Deep-dive reference document `field-types-custom` from the craftcms skill. |
 | `craft-skills://craftcms/fields` | craftcms / fields | `text/markdown` | Deep-dive reference document `fields` from the craftcms skill. |
 | `craft-skills://craftcms/graphql` | craftcms / graphql | `text/markdown` | Deep-dive reference document `graphql` from the craftcms skill. |
+| `craft-skills://craftcms/identity-protocols` | craftcms / identity-protocols | `text/markdown` | Deep-dive reference document `identity-protocols` from the craftcms skill. |
 | `craft-skills://craftcms/migrations` | craftcms / migrations | `text/markdown` | Deep-dive reference document `migrations` from the craftcms skill. |
 | `craft-skills://craftcms/permissions` | craftcms / permissions | `text/markdown` | Deep-dive reference document `permissions` from the craftcms skill. |
 | `craft-skills://craftcms/plugin-vite` | craftcms / plugin-vite | `text/markdown` | Deep-dive reference document `plugin-vite` from the craftcms skill. |
@@ -107,9 +147,9 @@ per-install content that this reference never lists.
 | `craft-skills://servd/deploy-and-environments` | servd / deploy-and-environments | `text/markdown` | Deep-dive reference document `deploy-and-environments` from the servd skill. |
 | `craft-skills://servd/limitations` | servd / limitations | `text/markdown` | Deep-dive reference document `limitations` from the servd skill. |
 | `craft-skills://servd/local-dev` | servd / local-dev | `text/markdown` | Deep-dive reference document `local-dev` from the servd skill. |
-| `craft-skills://agents/craft-code-reviewer` | agents / craft-code-reviewer | `text/markdown` | Claude Code agent definition `craft-code-reviewer` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-code-reviewer-deep` | agents / craft-code-reviewer-deep | `text/markdown` | Claude Code agent definition `craft-code-reviewer-deep` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-debugger` | agents / craft-debugger | `text/markdown` | Claude Code agent definition `craft-debugger` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-feature-builder` | agents / craft-feature-builder | `text/markdown` | Claude Code agent definition `craft-feature-builder` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-planner` | agents / craft-planner | `text/markdown` | Claude Code agent definition `craft-planner` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
-| `craft-skills://agents/craft-site-builder` | agents / craft-site-builder | `text/markdown` | Claude Code agent definition `craft-site-builder` — markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-code-reviewer` | agents / craft-code-reviewer | `text/markdown` | Claude Code agent definition `craft-code-reviewer`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-code-reviewer-deep` | agents / craft-code-reviewer-deep | `text/markdown` | Claude Code agent definition `craft-code-reviewer-deep`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-debugger` | agents / craft-debugger | `text/markdown` | Claude Code agent definition `craft-debugger`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-feature-builder` | agents / craft-feature-builder | `text/markdown` | Claude Code agent definition `craft-feature-builder`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-planner` | agents / craft-planner | `text/markdown` | Claude Code agent definition `craft-planner`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |
+| `craft-skills://agents/craft-site-builder` | agents / craft-site-builder | `text/markdown` | Claude Code agent definition `craft-site-builder`: markdown with YAML frontmatter declaring the agent's name and one-line description, plus the systemic prompt body. |

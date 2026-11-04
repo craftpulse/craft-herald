@@ -58,7 +58,7 @@ class PermissionsAndGroups extends AbstractTool
         return 'The full Craft permissions tree (built-in + plugin-registered) and the ' .
             'user-group structure with each group\'s assigned permissions. Use to discover ' .
             'what permission identifiers exist and how groups carve up access. Returns no ' .
-            'user data — membership is Pro-tier with PII gating.';
+            'user data; membership is Pro-tier with PII gating.';
     }
 
     /**

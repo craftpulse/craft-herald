@@ -32,7 +32,7 @@
 
 ### System
 
-- Added a Model Context Protocol server for Craft CMS, serving 33 tools, 10 prompts, and the bundled skills corpus over a stdio console transport (`php craft herald/serve`).
+- Added a Model Context Protocol server for Craft CMS, serving 33 tools, 13 prompts, and the bundled skills corpus over a stdio console transport (`php craft herald/serve`).
 - Added a Streamable HTTP transport at `POST /herald/mcp`, off by default, authenticated on every request through OAuth 2.1 or a bearer token (Pro).
 - Added OAuth 2.1 with Authorization Code and PKCE (S256 only), RFC 7591 Dynamic Client Registration, RFC 7009 revocation, RFC 8414 and RFC 9728 discovery metadata, and RFC 8707 audience binding.
 - Added capability scopes on every HTTP credential: `content:read`, `content:write`, `assets:write`, `schema:read`, `system:read`, `system:write`, `users:read`, and `users:write`. A credential carrying no scope authorises nothing.
@@ -49,6 +49,9 @@
 - Added `craftpulse\herald\tools\support\SecretRedactor` as the single source of truth for secret redaction, applied to tool arguments, audit excerpts, `craft_exec` output, and the `config` tool.
 - Added MCP protocol revision `2025-11-25`, negotiating `2025-06-18` for older clients.
 - Added a complete uninstall: removing Herald drops its own tables and the element and field-layout rows behind authored skills, so nothing is left orphaned in Craft's core tables.
+- Herald is installed from its GitHub repository as a Composer `vcs` package, and is not listed on the Plugin Store.
+- Updated the bundled skills corpus, `michtio/craftcms-claude-skills`, to 1.22.0.
+- Herald now requires Craft CMS 5.10.8 or later.
 
 ### Content Management
 
@@ -61,6 +64,7 @@
 ### Development
 
 - Added `search_skills`, ranked keyword retrieval over the merged skills corpus, returning the resource URI of each hit for a follow-up `resources/read`.
+- Added the `craftcms_plugins`, `craftcms_pest`, and `craftcms_plugin_release` prompts, served from the corpus's `craft-plugins`, `craft-pest`, and `craft-plugin-release` skills. The plugin integration guides moved from `craftcms_templates` to `craftcms_plugins`.
 - Added `get_initial_context`, a one-call bootstrap returning the Craft version, edition, environment, a thin sites and sections index, the skill-prompt catalogue, the `craft_exec` posture, and the effective command allowlist.
 - Added the `sections`, `entry_types`, `fields`, `field_types`, `category_groups`, `tag_groups`, `volumes_and_filesystems`, `sites`, `image_transforms`, `element_types`, and `database_schema` tools for reading the content model.
 - Added the `system_info`, `config`, `plugins`, `routes`, `system_diagnostics`, `extensibility`, `permissions_and_groups`, and `graphql` tools for reading system state.

@@ -63,8 +63,8 @@ class VolumesAndFilesystems extends AbstractTool
         return 'Combined map of asset volumes, filesystem instances, and registered ' .
             'filesystem type classes. Returns each volume with its filesystem details ' .
             '(type class, hasUrls, base URL), any filesystems not referenced by a volume, ' .
-            'and the full registered type registry — built-in `craft\\fs\\Local` plus ' .
-            'plugin-provided types (Servd, S3, GCS, Azure, etc.). Use the type registry ' .
+            'and the full registered type registry (built-in `craft\\fs\\Local` plus ' .
+            'plugin-provided types such as Servd, S3, GCS, and Azure). Use the type registry ' .
             'to discover what storage backends are available before configuring a new ' .
             'filesystem.';
     }

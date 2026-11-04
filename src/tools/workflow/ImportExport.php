@@ -166,7 +166,7 @@ class ImportExport extends AbstractTool implements StreamableToolInterface, Dual
             'sync. Free mode: `export` returns the envelope (filter by `section`, `id`, `site`). ' .
             'Pro mode: `import` consumes the same envelope, validates each entry against the target ' .
             'section\'s field layout, and saves create/update by uid. `import` defaults to ' .
-            '`dryRun: true` — pass `dryRun: false` to commit. Per-item permission ' .
+            '`dryRun: true`; pass `dryRun: false` to commit. Per-item permission ' .
             '`saveEntries:{section}`.';
     }
 
@@ -428,7 +428,7 @@ class ImportExport extends AbstractTool implements StreamableToolInterface, Dual
             'section' => Schema::string()->description('Section handle filter (for `export`).'),
             'id' => Schema::any()->description('Single entry id or array of ids. Overrides section filter (for `export`).'),
             'site' => Schema::string()->description('Site handle. Defaults to primary site (for `export`).'),
-            'siteHandle' => Schema::string()->description('Site handle override for `import` — picks the per-entry site context if the payload\'s `site` is unknown to this install.'),
+            'siteHandle' => Schema::string()->description('Site handle override for `import`: picks the per-entry site context if the payload\'s `site` is unknown to this install.'),
             'payload' => Schema::object()
                 ->additionalProperties(true)
                 ->description('Required for `import`. The envelope shape returned by `export`: `{format, entries: [...]}`.'),

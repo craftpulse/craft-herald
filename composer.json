@@ -2,7 +2,6 @@
     "name": "craftpulse/craft-herald",
     "description": "MCP (Model Context Protocol) server for Craft CMS 5. Exposes Craft internals to AI agents over stdio (Free) and Streamable HTTP (Pro).",
     "type": "craft-plugin",
-    "version": "5.0.0-alpha.1",
     "license": "proprietary",
     "support": {
         "email": "support@craft-pulse.com",
@@ -30,18 +29,19 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.2",
-        "craftcms/cms": "^5.0",
+        "craftcms/cms": "^5.10.8",
         "craftpulse/craft-audit-kit": "^1.1.2",
         "lcobucci/clock": "^3.0",
         "league/oauth2-server": "^9.0",
-        "nyholm/psr7": "^1.8",
-        "michtio/craftcms-claude-skills": "^1.6.1"
+        "michtio/craftcms-claude-skills": "^1.22.0",
+        "nyholm/psr7": "^1.8"
     },
     "require-dev": {
         "craftcms/ecs": "dev-main",
         "craftcms/generator": "^2.0",
         "craftcms/phpstan": "dev-main",
-        "pestphp/pest": "^4.6"
+        "pestphp/pest": "^4.6",
+        "phpstan/phpstan": "^1.12"
     },
     "autoload": {
         "psr-4": {

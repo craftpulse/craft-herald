@@ -51,7 +51,7 @@ use craftpulse\herald\tools\ToolException;
  */
 #[IsDestructive]
 #[IsIdempotent(false)]
-#[Title('Global Set — update field values')]
+#[Title('Global Set: update field values')]
 class GlobalSet extends AbstractTool
 {
     use IdempotencyTrait;
@@ -90,7 +90,7 @@ class GlobalSet extends AbstractTool
      */
     public static function getDescription(): string
     {
-        return 'Write tool for Craft global sets — updates field values on an existing set. ' .
+        return 'Write tool for Craft global sets. Updates field values on an existing set. ' .
             'Global sets are created / deleted in project config, not at runtime; this ' .
             'tool only mutates field values. Permission required: ' .
             'editGlobalSet:{globalSetUid}. Identify the set by `handle` (most common), ' .
@@ -118,7 +118,7 @@ class GlobalSet extends AbstractTool
             // Element resolution — one of id / uid / handle required.
             'id' => Schema::integer()->description('Global set id. One of id / uid / handle required.'),
             'uid' => Schema::string()->description('Global set uid. Alternative to id / handle.'),
-            'handle' => Schema::string()->description('Global set handle. Most common identifier — operators usually know the handle.'),
+            'handle' => Schema::string()->description('Global set handle. Most common identifier, since operators usually know the handle.'),
 
             // Site targeting.
             'siteId' => Schema::integer()->description('Target site id. Defaults to the primary site.'),

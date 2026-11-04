@@ -17,11 +17,11 @@
  * Precedence (highest -> lowest):
  *   1. `config/herald.php` environment-specific keys
  *   2. `config/herald.php` wildcard (`*`) keys
- *   3. Project config — `plugins.herald.settings.*`
+ *   3. Project config (`plugins.herald.settings.*`)
  *   4. Defaults from `models/Settings`
  *
  * Runtime DB overrides (admin-issued via the CP, auto-expiring) layer
- * on top of `allowedCommands` only — they don't override
+ * on top of `allowedCommands` only; they don't override
  * `adminLevelCommands`, the toggles, or TTL config. To grant a
  * normally-admin-level pattern at runtime, extend `allowedCommands`
  * directly via project config or `config/herald.php` for the target
@@ -36,13 +36,13 @@ return [
     '*' => [
 
         // ---------------------------------------------------------------------
-        // Allowlist — content level
+        // Allowlist: content level
         // ---------------------------------------------------------------------
 
         /**
          * The content-level set of glob patterns the `craft_command`
          * tool may dispatch. Always admitted regardless of the host's
-         * `allowAdminChanges` flag — these routes touch content,
+         * `allowAdminChanges` flag, since these routes touch content,
          * caches, queues, mail, or other non-schema state.
          *
          * Patterns use fnmatch semantics: `resave/*` matches any
@@ -71,14 +71,14 @@ return [
         // ],
 
         // ---------------------------------------------------------------------
-        // Allowlist — admin level
+        // Allowlist: admin level
         // ---------------------------------------------------------------------
 
         /**
          * The admin-level set of glob patterns the `craft_command`
          * tool may dispatch ONLY when
          * `Craft::$app->getConfig()->getGeneral()->allowAdminChanges`
-         * is `true`. These routes mutate admin-only state — project
+         * is `true`. These routes mutate admin-only state: project
          * config, schema migrations, plugin scaffolding, section/field
          * DDL, fixture loads.
          *
@@ -90,7 +90,7 @@ return [
          * `herald_invocations`.
          *
          * Tighten this list per environment when you want a stricter
-         * posture than the defaults provide — e.g. drop `make/*` on
+         * posture than the defaults provide, e.g. drop `make/*` on
          * production where scaffolding has no place.
          *
          * @var string[]
@@ -107,18 +107,18 @@ return [
         // ],
 
         // ---------------------------------------------------------------------
-        // Users tool — custom-field exposure allowlist
+        // Users tool: custom-field exposure allowlist
         // ---------------------------------------------------------------------
 
         /**
          * Operator-curated list of custom-field handles whose values
          * the Pro `users` tool may return on a user envelope. Default
-         * `[]` — zero-trust posture: no custom-field values are
+         * `[]`, a zero-trust posture: no custom-field values are
          * exposed until you explicitly enumerate them here.
          *
          * Craft 5 has no native per-field-value permission; field-
          * layout-designer hiding is UX-only. Defense in depth
-         * requires Herald providing its own gate — this allowlist is
+         * requires Herald providing its own gate, and this allowlist is
          * the gate. Native user attributes (id, username, email,
          * etc.) are NOT subject to this allowlist; per-permission
          * gates handle them. Only custom-field values are gated here.
@@ -191,15 +191,15 @@ return [
 
         /**
          * Allowlist of `Origin` header values the HTTP transport will
-         * accept. Empty means permissive — every Origin is accepted,
+         * accept. Empty means permissive: every Origin is accepted,
          * which is fine for local dev but unsafe for any deployed
          * environment because the MCP spec mandates Origin validation
          * as DNS-rebinding defense. When non-empty, requests whose
          * `Origin` does not match exactly are rejected with 403.
          *
          * Set this to the explicit URLs of every client that talks to
-         * the endpoint — Claude Desktop's local proxy, Cursor's HTTP
-         * setup, etc.
+         * the endpoint (Claude Desktop's local proxy, Cursor's HTTP
+         * setup, etc.).
          *
          * @var string[]
          */
@@ -234,7 +234,7 @@ return [
          * envelope, and continues with the next message rather than
          * buffering an unbounded payload into memory.
          *
-         * Default 4 MiB (4194304) — comfortably larger than any
+         * Default 4 MiB (4194304): comfortably larger than any
          * legitimate `tools/call` argument blob, small enough that a
          * hostile client streaming one giant line can't OOM the long-
          * running serve process. stdio is a trusted-local transport, but
@@ -254,7 +254,7 @@ return [
          * Whether Dynamic Client Registration (RFC 7591) is open. When
          * `true` (default), any caller can POST to `/oauth/register`
          * to mint a new OAuth client without an initial-access-token
-         * check — the MCP-native flow Claude Desktop and Cursor use.
+         * check, the MCP-native flow Claude Desktop and Cursor use.
          * Set to `false` to require out-of-band client provisioning on
          * production installs where open DCR is not appropriate.
          *
@@ -279,9 +279,9 @@ return [
          * Lifetime (in seconds) of an elevation marker minted by the
          * in-band `/oauth/elevate` re-authentication flow. Default
          * `300` (5 minutes). After a fresh Craft re-auth (password +
-         * 2FA), high-stakes operations over HTTP — credential / email /
+         * 2FA), high-stakes operations over HTTP (credential / email /
          * admin-status mutations on `users`, and content publish /
-         * delete — are permitted for this window, bound to the specific
+         * delete) are permitted for this window, bound to the specific
          * access token. Tracked server-side; never trusted from a
          * client claim. `craft_exec` is never unlocked by elevation.
          *
@@ -291,7 +291,7 @@ return [
 
         /**
          * Time-to-live for OAuth access tokens as an ISO 8601 duration
-         * string (`DateInterval` format). Default `'PT1H'` — one hour.
+         * string (`DateInterval` format). Default `'PT1H'` (one hour).
          * Shorter values tighten the revocation window; longer values
          * reduce refresh overhead for long-running AI sessions. The
          * value is parsed via `new DateInterval($ttl)` at server boot.
@@ -302,7 +302,7 @@ return [
 
         /**
          * Time-to-live for OAuth refresh tokens as an ISO 8601 duration
-         * string. Default `'P30D'` — 30 days. Refresh tokens are
+         * string. Default `'P30D'` (30 days). Refresh tokens are
          * opaque and stored hashed at rest; this TTL controls how long
          * the client can renew access without prompting the user again.
          *
@@ -317,8 +317,8 @@ return [
         /**
          * Default TTL (in seconds) applied to a new bearer token issued
          * via `herald/token/issue` when no explicit `--ttl=<seconds>`
-         * flag is passed. Null (the default) means tokens never expire
-         * — admin-issued credentials live until revoked. Set this to
+         * flag is passed. Null (the default) means tokens never expire:
+         * admin-issued credentials live until revoked. Set this to
          * e.g. 2592000 (30 days) to force a regular rotation cadence
          * on every newly-issued token without remembering to pass
          * `--ttl` every time.
@@ -337,7 +337,7 @@ return [
          * The DB column is `text`, so values up to 65535 fit; the
          * default 2048 keeps the audit table footprint small while
          * surfacing enough payload for forensics. The full response
-         * still goes back to the MCP client over the wire — this
+         * still goes back to the MCP client over the wire; this
          * excerpt is for the audit dashboard only.
          *
          * @var int
@@ -346,8 +346,8 @@ return [
 
         /**
          * Retention window (in days) for `herald_invocations` rows.
-         * Null (the default) means audit history is retained forever
-         * — the compliance-friendly default that punts the eviction
+         * Null (the default) means audit history is retained forever,
+         * the compliance-friendly default that punts the eviction
          * decision to operators with local-policy knowledge. Set
          * this to e.g. 90 to prune rows older than 90 days during
          * Craft's `gc` sweep.
@@ -361,7 +361,7 @@ return [
         // ---------------------------------------------------------------------
 
         /**
-         * Burst capacity for the per-user HTTP rate limiter — the
+         * Burst capacity for the per-user HTTP rate limiter: the
          * maximum tokens a single Craft user's bucket can hold. Each
          * authenticated POST to `/herald/mcp` consumes one token;
          * refills accrue at `rateLimitPerSecond` per second.
@@ -414,7 +414,7 @@ return [
     // ---------------------------------------------------------------------
     //
     // `db/backup` and `db/restore` are NOT in the default allowlist. They
-    // are destructive — backup writes a file to the storage volume,
+    // are destructive: backup writes a file to the storage volume,
     // restore replaces the entire database from a dump. Operators that
     // want them available to the `craft_command` tool should add them
     // explicitly per environment:

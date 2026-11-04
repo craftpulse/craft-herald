@@ -51,7 +51,7 @@ class ElementTypes extends AbstractTool
      */
     public static function getDescription(): string
     {
-        return 'List every registered Craft element type — 8 core (Entry, Asset, Category, ' .
+        return 'List every registered Craft element type: 8 core (Entry, Asset, Category, ' .
             'Tag, User, Address, GlobalSet, ContentBlock) plus plugin-provided. For each: ' .
             'class, displayName variants, refHandle, and capability flags (hasTitles, ' .
             'hasUris, hasStatuses, hasDrafts, isLocalized, trackChanges).';

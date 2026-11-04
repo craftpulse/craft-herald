@@ -12,10 +12,11 @@
 use craftpulse\herald\Herald;
 use craftpulse\herald\prompts\PromptInterface;
 
-it('registers all ten skill-backed prompts with the planned MCP names', function() {
+it('registers all thirteen skill-backed prompts with the planned MCP names', function() {
     $expected = [
         'craftcms_extending',
         'craftcms_templates',
+        'craftcms_plugins',
         'craftcms_cp_javascript',
         'craftcms_content_modeling',
         'craftcms_php_standards',
@@ -24,6 +25,8 @@ it('registers all ten skill-backed prompts with the planned MCP names', function
         'craftcms_setup',
         'craftcms_servd',
         'craftcms_cloud',
+        'craftcms_pest',
+        'craftcms_plugin_release',
     ];
 
     $prompts = Herald::getInstance()->prompts;

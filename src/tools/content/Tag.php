@@ -55,7 +55,7 @@ use craftpulse\herald\tools\ToolException;
  */
 #[IsDestructive]
 #[IsIdempotent(false)]
-#[Title('Tag — create / update / delete (admin only)')]
+#[Title('Tag: create / update / delete (admin only)')]
 class Tag extends AbstractTool implements ContextAwareToolInterface
 {
     use ElevationGatedToolTrait;
@@ -99,7 +99,7 @@ class Tag extends AbstractTool implements ContextAwareToolInterface
      */
     public static function getDescription(): string
     {
-        return 'Write tool for Craft tags. Modes: create / update / delete. Admin only — ' .
+        return 'Write tool for Craft tags. Modes: create / update / delete. Admin only: ' .
             'Craft 5 has no per-tag-group permission, so tag management is gated to admin ' .
             'users. Returns the serialised tag on success; on field-level validation ' .
             'failure returns {success: false, errors: {handle: [messages]}, mode, id} ' .
@@ -132,7 +132,7 @@ class Tag extends AbstractTool implements ContextAwareToolInterface
             'siteHandle' => Schema::string()->description('Target site handle. Alternative to `siteId`.'),
 
             // Group resolution (create only).
-            'groupId' => Schema::integer()->description('Tag group id (create only — one of groupId / groupUid / groupHandle required).'),
+            'groupId' => Schema::integer()->description('Tag group id (create only; one of groupId / groupUid / groupHandle required).'),
             'groupUid' => Schema::string()->description('Tag group uid (create only).'),
             'groupHandle' => Schema::string()->description('Tag group handle (create only).'),
 

@@ -9,14 +9,14 @@ corpus in its description, so that one description moves with the
 corpus version below.
 
 - **Total tools:** 42 (33 Free, 9 Pro)
-- **Skills corpus:** `v1.6.2` (michtio/craftcms-claude-skills)
-- **Generated:** 2026-08-03T18:25:32+00:00
+- **Skills corpus:** `v1.22.0` (michtio/craftcms-claude-skills)
+- **Generated:** 2026-11-02T19:52:58+00:00
 
 ## `get_initial_context`
 
 **Edition:** Free
 
-Bootstrap snapshot for an AI agent picking up a fresh conversation against this Craft install. Returns Craft version + edition + environment, the primary site handle, a thin sites/sections/element-types index, the bundled herald skill prompts (the moat content the LLM should consult when authoring against Craft), the `craft_exec` posture, and the effective command allowlist. Call this first — it replaces three or four orientation tool calls with one.
+Bootstrap snapshot for an AI agent picking up a fresh conversation against this Craft install. Returns Craft version + edition + environment, the primary site handle, a thin sites/sections/element-types index, the bundled herald skill prompts (the moat content the LLM should consult when authoring against Craft), the `craft_exec` posture, and the effective command allowlist. Call this first: it replaces three or four orientation tool calls with one.
 
 **Annotations:**
 
@@ -210,7 +210,7 @@ Bootstrap snapshot for an AI agent picking up a fresh conversation against this 
         },
         "hints": {
             "type": "array",
-            "description": "Operating notes for the agent \u2014 when to invoke which prompts, which tools are stdio-only, etc.",
+            "description": "Operating notes for the agent: when to invoke which prompts, which tools are stdio-only, etc.",
             "items": {
                 "type": "string"
             }
@@ -265,7 +265,7 @@ List all sections, get a single section by handle, or count sections. Returns ea
 
 **Edition:** Free
 
-List all Craft 5 entry types, get a single one by handle, or count them. In Craft 5 entry types are decoupled from sections — they can be reused across sections, Matrix fields, and CKEditor nested entries. Single-handle mode returns the full field layout (tabs, fields per tab, conditions, and UI elements).
+List all Craft 5 entry types, get a single one by handle, or count them. In Craft 5 entry types are decoupled from sections: they can be reused across sections, Matrix fields, and CKEditor nested entries. Single-handle mode returns the full field layout (tabs, fields per tab, conditions, and UI elements).
 
 **Annotations:**
 
@@ -333,7 +333,7 @@ List all custom fields, get a single field by handle, get its usage map, or coun
 
 **Edition:** Free
 
-List every registered Craft field type class — built-in plus plugin-provided. For each: the class FQN, display name, supported translation methods, whether multi-instance, and whether relational. Use this to discover what field types are available before creating a new field.
+List every registered Craft field type class, built-in plus plugin-provided. For each: the class FQN, display name, supported translation methods, whether multi-instance, and whether relational. Use this to discover what field types are available before creating a new field.
 
 **Annotations:**
 
@@ -410,7 +410,7 @@ List all tag groups, get a single group by handle, or count them. Returns each g
 
 **Edition:** Free
 
-Combined map of asset volumes, filesystem instances, and registered filesystem type classes. Returns each volume with its filesystem details (type class, hasUrls, base URL), any filesystems not referenced by a volume, and the full registered type registry — built-in `craft\fs\Local` plus plugin-provided types (Servd, S3, GCS, Azure, etc.). Use the type registry to discover what storage backends are available before configuring a new filesystem.
+Combined map of asset volumes, filesystem instances, and registered filesystem type classes. Returns each volume with its filesystem details (type class, hasUrls, base URL), any filesystems not referenced by a volume, and the full registered type registry (built-in `craft\fs\Local` plus plugin-provided types such as Servd, S3, GCS, and Azure). Use the type registry to discover what storage backends are available before configuring a new filesystem.
 
 **Annotations:**
 
@@ -487,7 +487,7 @@ List named image transforms, get a single transform by handle, or count them. Re
 
 **Edition:** Free
 
-List every registered Craft element type — 8 core (Entry, Asset, Category, Tag, User, Address, GlobalSet, ContentBlock) plus plugin-provided. For each: class, displayName variants, refHandle, and capability flags (hasTitles, hasUris, hasStatuses, hasDrafts, isLocalized, trackChanges).
+List every registered Craft element type: 8 core (Entry, Asset, Category, Tag, User, Address, GlobalSet, ContentBlock) plus plugin-provided. For each: class, displayName variants, refHandle, and capability flags (hasTitles, hasUris, hasStatuses, hasDrafts, isLocalized, trackChanges).
 
 **Annotations:**
 
@@ -895,13 +895,13 @@ Read Craft global set field values. Pass `handle` for a single set, or omit for 
 
 **Edition:** Pro
 
-Write tool for Craft entries. Modes: create / update / delete / restore / apply_draft. Per-section permissions required: saveEntries:{sectionUid} for create / update / restore / apply_draft, deleteEntries:{sectionUid} for delete. Returns the serialised entry on success; on field-level validation failure returns {success: false, errors: {handle: [messages]}, mode, id} rather than throwing — the LLM iterates on field values until they validate. Throws only for permission denial, missing arguments, mode misuse, or entry-not-found. Pass `fields: {handle: value}`; Craft normalises per field type at save time. `idempotencyKey` (create / update only) caches the result for 24h so safe retries don't double-save. Pro edition only.
+Write tool for Craft entries. Modes: create / update / delete / restore / apply_draft. Per-section permissions required: saveEntries:{sectionUid} for create / update / restore / apply_draft, deleteEntries:{sectionUid} for delete. Returns the serialised entry on success; on field-level validation failure returns {success: false, errors: {handle: [messages]}, mode, id} rather than throwing, so the LLM iterates on field values until they validate. Throws only for permission denial, missing arguments, mode misuse, or entry-not-found. Pass `fields: {handle: value}`; Craft normalises per field type at save time. `idempotencyKey` (create / update only) caches the result for 24h so safe retries don't double-save. Pro edition only.
 
 **Annotations:**
 
 - `destructiveHint`: true
 - `idempotentHint`: false
-- `title`: Entry — create / update / delete / restore / apply_draft
+- `title`: Entry: create / update / delete / restore / apply_draft
 
 **Input schema:**
 
@@ -938,7 +938,7 @@ Write tool for Craft entries. Modes: create / update / delete / restore / apply_
         },
         "sectionId": {
             "type": "integer",
-            "description": "Section id (create only \u2014 one of sectionId / sectionUid / sectionHandle required)."
+            "description": "Section id (create only; one of sectionId / sectionUid / sectionHandle required)."
         },
         "sectionUid": {
             "type": "string",
@@ -950,7 +950,7 @@ Write tool for Craft entries. Modes: create / update / delete / restore / apply_
         },
         "entryTypeId": {
             "type": "integer",
-            "description": "Entry-type id (create only \u2014 required when the section has multiple entry types)."
+            "description": "Entry-type id (create only; required when the section has multiple entry types)."
         },
         "entryTypeUid": {
             "type": "string",
@@ -1021,13 +1021,13 @@ Write tool for Craft entries. Modes: create / update / delete / restore / apply_
 
 **Edition:** Pro
 
-Write tool for Craft categories. Modes: create / update / delete. Per-group permissions required: saveCategories:{groupUid} for create / update, deleteCategories:{groupUid} for delete. Returns the serialised category on success; on field-level validation failure returns {success: false, errors: {handle: [messages]}, mode, id} rather than throwing — the LLM iterates on field values until they validate. Throws only for permission denial, missing arguments, mode misuse, or category-not-found. Pass `fields: {handle: value}`; Craft normalises per field type at save time. `parentId` must belong to the same group (cross-group parents are rejected via validation envelope). `idempotencyKey` (create / update only) caches the result for 24h. Pro edition only.
+Write tool for Craft categories. Modes: create / update / delete. Per-group permissions required: saveCategories:{groupUid} for create / update, deleteCategories:{groupUid} for delete. Returns the serialised category on success; on field-level validation failure returns {success: false, errors: {handle: [messages]}, mode, id} rather than throwing, so the LLM iterates on field values until they validate. Throws only for permission denial, missing arguments, mode misuse, or category-not-found. Pass `fields: {handle: value}`; Craft normalises per field type at save time. `parentId` must belong to the same group (cross-group parents are rejected via validation envelope). `idempotencyKey` (create / update only) caches the result for 24h. Pro edition only.
 
 **Annotations:**
 
 - `destructiveHint`: true
 - `idempotentHint`: false
-- `title`: Category — create / update / delete
+- `title`: Category: create / update / delete
 
 **Input schema:**
 
@@ -1062,7 +1062,7 @@ Write tool for Craft categories. Modes: create / update / delete. Per-group perm
         },
         "groupId": {
             "type": "integer",
-            "description": "Category group id (create only \u2014 one of groupId / groupUid / groupHandle required)."
+            "description": "Category group id (create only; one of groupId / groupUid / groupHandle required)."
         },
         "groupUid": {
             "type": "string",
@@ -1119,13 +1119,13 @@ Write tool for Craft categories. Modes: create / update / delete. Per-group perm
 
 **Edition:** Pro
 
-Write tool for Craft tags. Modes: create / update / delete. Admin only — Craft 5 has no per-tag-group permission, so tag management is gated to admin users. Returns the serialised tag on success; on field-level validation failure returns {success: false, errors: {handle: [messages]}, mode, id} rather than throwing. Throws only for permission denial, missing arguments, mode misuse, or tag-not-found. Pass `fields: {handle: value}`; Craft normalises per field type at save time. `idempotencyKey` (create / update only) caches the result for 24h. Pro edition only.
+Write tool for Craft tags. Modes: create / update / delete. Admin only: Craft 5 has no per-tag-group permission, so tag management is gated to admin users. Returns the serialised tag on success; on field-level validation failure returns {success: false, errors: {handle: [messages]}, mode, id} rather than throwing. Throws only for permission denial, missing arguments, mode misuse, or tag-not-found. Pass `fields: {handle: value}`; Craft normalises per field type at save time. `idempotencyKey` (create / update only) caches the result for 24h. Pro edition only.
 
 **Annotations:**
 
 - `destructiveHint`: true
 - `idempotentHint`: false
-- `title`: Tag — create / update / delete (admin only)
+- `title`: Tag: create / update / delete (admin only)
 
 **Input schema:**
 
@@ -1160,7 +1160,7 @@ Write tool for Craft tags. Modes: create / update / delete. Admin only — Craft
         },
         "groupId": {
             "type": "integer",
-            "description": "Tag group id (create only \u2014 one of groupId / groupUid / groupHandle required)."
+            "description": "Tag group id (create only; one of groupId / groupUid / groupHandle required)."
         },
         "groupUid": {
             "type": "string",
@@ -1208,13 +1208,13 @@ Write tool for Craft tags. Modes: create / update / delete. Admin only — Craft
 
 **Edition:** Pro
 
-Write tool for Craft global sets — updates field values on an existing set. Global sets are created / deleted in project config, not at runtime; this tool only mutates field values. Permission required: editGlobalSet:{globalSetUid}. Identify the set by `handle` (most common), `id`, or `uid`. Returns the serialised set on success; on validation failure returns {success: false, errors: {handle: [messages]}, mode, id}. The `mode` field defaults to `update` (the only allowed value today; reserved for forward compatibility). `idempotencyKey` caches the result for 24h. Pro edition only.
+Write tool for Craft global sets. Updates field values on an existing set. Global sets are created / deleted in project config, not at runtime; this tool only mutates field values. Permission required: editGlobalSet:{globalSetUid}. Identify the set by `handle` (most common), `id`, or `uid`. Returns the serialised set on success; on validation failure returns {success: false, errors: {handle: [messages]}, mode, id}. The `mode` field defaults to `update` (the only allowed value today; reserved for forward compatibility). `idempotencyKey` caches the result for 24h. Pro edition only.
 
 **Annotations:**
 
 - `destructiveHint`: true
 - `idempotentHint`: false
-- `title`: Global Set — update field values
+- `title`: Global Set: update field values
 
 **Input schema:**
 
@@ -1240,7 +1240,7 @@ Write tool for Craft global sets — updates field values on an existing set. Gl
         },
         "handle": {
             "type": "string",
-            "description": "Global set handle. Most common identifier \u2014 operators usually know the handle."
+            "description": "Global set handle. Most common identifier, since operators usually know the handle."
         },
         "siteId": {
             "type": "integer",
@@ -1273,13 +1273,13 @@ Write tool for Craft global sets — updates field values on an existing set. Gl
 
 **Edition:** Pro
 
-Write tool for Craft addresses. Modes: list / get / create / update / delete on user-owned addresses. Per-owner permission gating delegated to Craft's native Elements::canSave / canView / canDelete — for user-owned addresses this resolves to editUsers on the owner. countryCode is validated at execute-time against the ISO 3166-1 alpha-2 list — bad codes surface in the validation envelope (errors.countryCode), not as a thrown error, so the LLM iterates. Owner type: only `user` is supported — other owner types are rejected. Address fields (countryCode, addressLine1, locality, etc.) pass through to Craft's save validation, which honours the per-country required-field map. Returns the serialised address on success; on validation failure returns {success: false, errors: {handle: [messages]}, mode, id}. Throws only for permission denial, missing arguments, mode misuse, ownership-change attempts, or address-not-found. `idempotencyKey` (create / update only) caches the result for 24h. Pro edition only.
+Write tool for Craft addresses. Modes: list / get / create / update / delete on user-owned addresses. Per-owner permission gating delegated to Craft's native Elements::canSave / canView / canDelete; for user-owned addresses this resolves to editUsers on the owner. countryCode is validated at execute-time against the ISO 3166-1 alpha-2 list. Bad codes surface in the validation envelope (errors.countryCode), not as a thrown error, so the LLM iterates. Owner type: only `user` is supported; other owner types are rejected. Address fields (countryCode, addressLine1, locality, etc.) pass through to Craft's save validation, which honours the per-country required-field map. Returns the serialised address on success; on validation failure returns {success: false, errors: {handle: [messages]}, mode, id}. Throws only for permission denial, missing arguments, mode misuse, ownership-change attempts, or address-not-found. `idempotencyKey` (create / update only) caches the result for 24h. Pro edition only.
 
 **Annotations:**
 
 - `destructiveHint`: true
 - `idempotentHint`: false
-- `title`: Address — list / get / create / update / delete (user-owned)
+- `title`: Address: list / get / create / update / delete (user-owned)
 
 **Input schema:**
 
@@ -1329,7 +1329,7 @@ Write tool for Craft addresses. Modes: list / get / create / update / delete on 
         },
         "countryCode": {
             "type": "string",
-            "description": "ISO 3166-1 alpha-2 country code (e.g. `US`, `BE`). Validated at execute-time. Required for create. Non-nullable on the underlying element \u2014 missing on save surfaces as a validation envelope."
+            "description": "ISO 3166-1 alpha-2 country code (e.g. `US`, `BE`). Validated at execute-time. Required for create. Non-nullable on the underlying element: missing on save surfaces as a validation envelope."
         },
         "administrativeArea": {
             "type": "string",
@@ -1349,7 +1349,7 @@ Write tool for Craft addresses. Modes: list / get / create / update / delete on 
         },
         "sortingCode": {
             "type": "string",
-            "description": "Sorting code (per country format \u2014 rare)."
+            "description": "Sorting code (per country format, rare)."
         },
         "addressLine1": {
             "type": "string",
@@ -1373,7 +1373,7 @@ Write tool for Craft addresses. Modes: list / get / create / update / delete on 
         },
         "fullName": {
             "type": "string",
-            "description": "Full name (single-field mode \u2014 default)."
+            "description": "Full name (single-field mode, the default)."
         },
         "firstName": {
             "type": "string",
@@ -1429,13 +1429,13 @@ Write tool for Craft addresses. Modes: list / get / create / update / delete on 
 
 **Edition:** Pro
 
-Write tool for Craft users with PII gating. Modes: list / get / create / update / delete. Per-target permission gating delegated to Craft's native Elements::canSave / canView / canDelete plus a tool-layer admin-protection gate on update (User::canSave does NOT enforce non-admin-cannot-edit-admin natively — added here). Sensitive fields (email/username on non-self, active/suspended/pending/locked, newPassword on non-self) require administrateUsers. Admin promotion / demotion requires the caller is admin. Group assignments require assignUserGroup:{uid} on every newly added group; kept groups do not re-gate. PII fields (email, unverifiedEmail, lockout counters, passwordResetRequired) redacted per caller permission via _serializeUser — viewUsers callers get no email; editUsers callers get email + lockout; administrateUsers gets passwordResetRequired; admin gets all. Custom field values gated by Settings::$userCustomFieldAllowlist — handles NOT on the allowlist are NEVER returned, even for admin callers. Credentials (password, verificationCode, newPassword) NEVER returned. Returns the serialised user on success; on validation failure returns {success: false, errors: {handle: [messages]}, mode, id, uid}. Throws only for permission denial, missing arguments, mode misuse, admin-protection failures, or user-not-found. `idempotencyKey` (create / update only) caches the result for 24h. Pro edition only.
+Write tool for Craft users with PII gating. Modes: list / get / create / update / delete. Per-target permission gating delegated to Craft's native Elements::canSave / canView / canDelete plus a tool-layer admin-protection gate on update (User::canSave does NOT enforce non-admin-cannot-edit-admin natively; added here). Sensitive fields (email/username on non-self, active/suspended/pending/locked, newPassword on non-self) require administrateUsers. Admin promotion / demotion requires the caller is admin. Group assignments require assignUserGroup:{uid} on every newly added group; kept groups do not re-gate. PII fields (email, unverifiedEmail, lockout counters, passwordResetRequired) redacted per caller permission via _serializeUser: viewUsers callers get no email; editUsers callers get email + lockout; administrateUsers gets passwordResetRequired; admin gets all. Custom field values gated by Settings::$userCustomFieldAllowlist: handles NOT on the allowlist are NEVER returned, even for admin callers. Credentials (password, verificationCode, newPassword) NEVER returned. Returns the serialised user on success; on validation failure returns {success: false, errors: {handle: [messages]}, mode, id, uid}. Throws only for permission denial, missing arguments, mode misuse, admin-protection failures, or user-not-found. `idempotencyKey` (create / update only) caches the result for 24h. Pro edition only.
 
 **Annotations:**
 
 - `destructiveHint`: true
 - `idempotentHint`: false
-- `title`: Users — list / get / create / update / delete with PII gating
+- `title`: Users: list / get / create / update / delete with PII gating
 
 **Input schema:**
 
@@ -1464,7 +1464,7 @@ Write tool for Craft users with PII gating. Modes: list / get / create / update 
         },
         "email": {
             "type": "string",
-            "description": "Email. On `create`: required. On `get`: alternative lookup key (case-insensitive on MySQL, case-sensitive on Postgres \u2014 delegates to Craft's `getUserByUsernameOrEmail`). On `update`: mutating value; requires administrateUsers for non-self."
+            "description": "Email. On `create`: required. On `get`: alternative lookup key (case-insensitive on MySQL, case-sensitive on Postgres; delegates to Craft's `getUserByUsernameOrEmail`). On `update`: mutating value; requires administrateUsers for non-self."
         },
         "username": {
             "type": "string",
@@ -1582,7 +1582,7 @@ Write tool for Herald skill elements. Modes: list / get / create / update / dele
 
 - `destructiveHint`: true
 - `idempotentHint`: false
-- `title`: Skill — list / get / create / update / delete (Herald skills)
+- `title`: Skill: list / get / create / update / delete (Herald skills)
 
 **Input schema:**
 
@@ -1677,13 +1677,13 @@ Write tool for Herald skill elements. Modes: list / get / create / update / dele
 
 **Edition:** Pro
 
-Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status (toggle the `enabled` flag — set enabled or disabled; `pending` and `expired` are not status flips, drive postDate / expiryDate via update_fields instead) / update_fields (pass-through `fields: {handle: value}` to setFieldValues) / relate (apply replace / add / remove on a relation field) / migrate (move entries to a new section + entry type — defaults to dryRun:true). Permission: per-row `saveEntries:{sectionUid}`. Denied rows go to `skipped[]` by default; pass `onPermissionDenied: "fail"` to abort. Hard cap 10,000 rows per call; `force: true` to bypass. Streams `notifications/progress` frames every `progressInterval` rows (default 100). Returns a terminal envelope with per-row `results[]` ({kind: success / failure / skipped, id, …}). Cancellation-cooperative: the running stream short-circuits on `notifications/cancelled` or a TCP disconnect. `idempotencyKey` caches the whole-operation envelope for 24h (dry-run and commit are cached separately). Pro edition only.
+Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status (toggle the `enabled` flag to set enabled or disabled; `pending` and `expired` are not status flips, drive postDate / expiryDate via update_fields instead) / update_fields (pass-through `fields: {handle: value}` to setFieldValues) / relate (apply replace / add / remove on a relation field) / migrate (move entries to a new section + entry type; defaults to dryRun:true). Permission: per-row `saveEntries:{sectionUid}`. Denied rows go to `skipped[]` by default; pass `onPermissionDenied: "fail"` to abort. Hard cap 10,000 rows per call; `force: true` to bypass. Streams `notifications/progress` frames every `progressInterval` rows (default 100). Returns a terminal envelope with per-row `results[]` ({kind: success / failure / skipped, id, …}). Cancellation-cooperative: the running stream short-circuits on `notifications/cancelled` or a TCP disconnect. `idempotencyKey` caches the whole-operation envelope for 24h (dry-run and commit are cached separately). Pro edition only.
 
 **Annotations:**
 
 - `destructiveHint`: true
 - `idempotentHint`: false
-- `title`: Bulk Entries — query-driven set_status / update_fields / relate / migrate
+- `title`: Bulk Entries: query-driven set_status / update_fields / relate / migrate
 
 **Input schema:**
 
@@ -1703,7 +1703,7 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
         },
         "query": {
             "type": "object",
-            "description": "Filter shape \u2014 at minimum one selector should be present, otherwise the cap-check rejects the unbounded query.",
+            "description": "Filter shape: at minimum one selector should be present, otherwise the cap-check rejects the unbounded query.",
             "properties": {
                 "section": {
                     "type": "string",
@@ -1714,7 +1714,7 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
                     "description": "Entry-type handle (single)."
                 },
                 "status": {
-                    "description": "Status filter \u2014 string or array of strings (live / pending / expired / disabled)."
+                    "description": "Status filter: string or array of strings (live / pending / expired / disabled)."
                 },
                 "search": {
                     "type": "string",
@@ -1733,7 +1733,7 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
                 },
                 "dateCreated": {
                     "type": "object",
-                    "description": "Range filter \u2014 ISO 8601 datetimes.",
+                    "description": "Range filter: ISO 8601 datetimes.",
                     "properties": {
                         "gte": {
                             "type": "string"
@@ -1746,7 +1746,7 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
                 },
                 "dateUpdated": {
                     "type": "object",
-                    "description": "Range filter \u2014 ISO 8601 datetimes.",
+                    "description": "Range filter: ISO 8601 datetimes.",
                     "properties": {
                         "gte": {
                             "type": "string"
@@ -1759,7 +1759,7 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
                 },
                 "postDate": {
                     "type": "object",
-                    "description": "Range filter \u2014 ISO 8601 datetimes.",
+                    "description": "Range filter: ISO 8601 datetimes.",
                     "properties": {
                         "gte": {
                             "type": "string"
@@ -1772,7 +1772,7 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
                 },
                 "expiryDate": {
                     "type": "object",
-                    "description": "Range filter \u2014 ISO 8601 datetimes.",
+                    "description": "Range filter: ISO 8601 datetimes.",
                     "properties": {
                         "gte": {
                             "type": "string"
@@ -1791,7 +1791,7 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
         },
         "status": {
             "type": "string",
-            "description": "set_status only \u2014 new status for every visited row.",
+            "description": "set_status only: new status for every visited row.",
             "enum": [
                 "enabled",
                 "disabled"
@@ -1799,24 +1799,24 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
         },
         "fields": {
             "type": "object",
-            "description": "update_fields only \u2014 `{handle: value}` map forwarded to setFieldValues.",
+            "description": "update_fields only: `{handle: value}` map forwarded to setFieldValues.",
             "properties": {},
             "additionalProperties": true
         },
         "targetField": {
             "type": "string",
-            "description": "relate only \u2014 relation field handle."
+            "description": "relate only: relation field handle."
         },
         "targetIds": {
             "type": "array",
-            "description": "relate only \u2014 element IDs to relate to.",
+            "description": "relate only: element IDs to relate to.",
             "items": {
                 "type": "integer"
             }
         },
         "mergeStrategy": {
             "type": "string",
-            "description": "relate only \u2014 relation merge strategy. Defaults to `replace`.",
+            "description": "relate only: relation merge strategy. Defaults to `replace`.",
             "enum": [
                 "replace",
                 "add",
@@ -1825,15 +1825,15 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
         },
         "toSectionUid": {
             "type": "string",
-            "description": "migrate only \u2014 target section UID."
+            "description": "migrate only: target section UID."
         },
         "toEntryTypeUid": {
             "type": "string",
-            "description": "migrate only \u2014 target entry type UID."
+            "description": "migrate only: target entry type UID."
         },
         "dryRun": {
             "type": "boolean",
-            "description": "migrate only \u2014 preview without saving. Defaults to true."
+            "description": "migrate only: preview without saving. Defaults to true."
         },
         "force": {
             "type": "boolean",
@@ -1870,13 +1870,13 @@ Bulk-mutate entries selected by an `EntryQuery`-shaped filter. Modes: set_status
 
 **Edition:** Pro
 
-Bulk-create N entries from a deterministic template. `template.title` and `template.slug` accept `{n}` and `{n:0Nd}` substitution (1-indexed counter; zero-padded N digits). No Twig — the surface stays narrow and predictable. Permission: per-row `saveEntries:{sectionUid}`. Hard cap 10,000 per call; `force: true` to bypass. Streams `notifications/progress` frames every `progressInterval` rows (default 100). Returns a terminal envelope with per-row `results[]` ({kind: success / failure, id, …}). Cancellation-cooperative. `idempotencyKey` caches the envelope for 24h. Pro edition only.
+Bulk-create N entries from a deterministic template. `template.title` and `template.slug` accept `{n}` and `{n:0Nd}` substitution (1-indexed counter; zero-padded N digits). No Twig, so the surface stays narrow and predictable. Permission: per-row `saveEntries:{sectionUid}`. Hard cap 10,000 per call; `force: true` to bypass. Streams `notifications/progress` frames every `progressInterval` rows (default 100). Returns a terminal envelope with per-row `results[]` ({kind: success / failure, id, …}). Cancellation-cooperative. `idempotencyKey` caches the envelope for 24h. Pro edition only.
 
 **Annotations:**
 
 - `destructiveHint`: true
 - `idempotentHint`: false
-- `title`: Scaffold Entries — template-driven bulk create
+- `title`: Scaffold Entries: template-driven bulk create
 
 **Input schema:**
 
@@ -2137,7 +2137,7 @@ Snapshot of the running Craft install: version, edition, schema version, environ
 
 **Edition:** Free
 
-Read curated Craft configuration. Modes: `general` (whitelisted GeneralConfig fields), `custom` (config/custom.php), `db` (host/name/driver/port — never user/password), `email` (transport adapter from project config), `system_messages` (system email message keys). All output is secrets-redacted.
+Read curated Craft configuration. Modes: `general` (whitelisted GeneralConfig fields), `custom` (config/custom.php), `db` (host/name/driver/port, never user/password), `email` (transport adapter from project config), `system_messages` (system email message keys). All output is secrets-redacted.
 
 **Annotations:**
 
@@ -2455,7 +2455,7 @@ Combined diagnostics surface: logs, last_error, deprecations, queue jobs, and pr
         },
         "action": {
             "type": "string",
-            "description": "Required for `type=manage_queue`. `release` deletes the job; Craft has no `cancel()` \u2014 `release` IS the cancel action.",
+            "description": "Required for `type=manage_queue`. `release` deletes the job; Craft has no `cancel()`, so `release` IS the cancel action.",
             "enum": [
                 "retry",
                 "retry_all",
@@ -2552,7 +2552,7 @@ Inventory of registered extensibility points: class-level events, Twig extension
 
 **Edition:** Free
 
-The full Craft permissions tree (built-in + plugin-registered) and the user-group structure with each group's assigned permissions. Use to discover what permission identifiers exist and how groups carve up access. Returns no user data — membership is Pro-tier with PII gating.
+The full Craft permissions tree (built-in + plugin-registered) and the user-group structure with each group's assigned permissions. Use to discover what permission identifiers exist and how groups carve up access. Returns no user data; membership is Pro-tier with PII gating.
 
 **Annotations:**
 
@@ -2646,7 +2646,7 @@ The full Craft permissions tree (built-in + plugin-registered) and the user-grou
 
 **Edition:** Free
 
-Full-text search across the bundled craft-skills corpus — 10 skills, their reference deep-dives, and 6 Claude Code agents. `mode: "search"` (default) returns ranked matches with a snippet and the resource URI for follow-up reads; `mode: "topics"` enumerates the corpus without scoring. Filter `kind` to `skill` / `reference` / `agent` to narrow. Element-stored Herald skills override bundled ones by handle and are included in the merged corpus.
+Full-text search across the bundled craft-skills corpus: 13 skills, their reference deep-dives, and 6 Claude Code agents. `mode: "search"` (default) returns ranked matches with a snippet and the resource URI for follow-up reads; `mode: "topics"` enumerates the corpus without scoring. Filter `kind` to `skill` / `reference` / `agent` to narrow. Element-stored Herald skills override bundled ones by handle and are included in the merged corpus.
 
 **Annotations:**
 
@@ -2700,7 +2700,7 @@ Full-text search across the bundled craft-skills corpus — 10 skills, their ref
 
 **Edition:** Free
 
-Read-only GraphQL introspection. Modes: `list_schemas` (id/name/uid/isPublic/scope summary), `get_sdl` (printed SDL — accepts `name` for a specific schema or omits it for the public schema), `list_tokens` (token metadata only — names, expiry, enabled flag, fingerprint; never the access-token value itself).
+Read-only GraphQL introspection. Modes: `list_schemas` (id/name/uid/isPublic/scope summary), `get_sdl` (printed SDL; accepts `name` for a specific schema or omits it for the public schema), `list_tokens` (token metadata only: names, expiry, enabled flag, fingerprint; never the access-token value itself).
 
 **Annotations:**
 
@@ -2764,7 +2764,7 @@ Clear Craft caches. `mode: "list"` returns available cache keys; `mode: "all"` (
 
 **Edition:** Free
 
-Re-save elements through Craft's resave pipeline. Required `type`: entries / assets / categories / tags / users / addresses. Optional filters: section, entryType, group, volume, status, limit. `updateSearchIndex` and `touch` mirror the corresponding CLI flags. Returns a structured envelope {success, type, route, total, processed, succeeded, failed, cancelled, results[]} where `results[]` enumerates per-element failures (successes are counted but not listed). Streaming clients (Accept: text/event-stream) additionally get one `notifications/progress` frame per element (subject to a 60Hz wire-level throttle); non-streaming clients get the same terminal envelope without the intermediate frames. `queue: true` and the field-rewrite options (`set`, `to`, `ifEmpty`, `ifInvalid`, `propagateTo`, `toDefault`, `setEnabledForSite`) are not supported — use `craft_command` for raw controller access.
+Re-save elements through Craft's resave pipeline. Required `type`: entries / assets / categories / tags / users / addresses. Optional filters: section, entryType, group, volume, status, limit. `updateSearchIndex` and `touch` mirror the corresponding CLI flags. Returns a structured envelope {success, type, route, total, processed, succeeded, failed, cancelled, results[]} where `results[]` enumerates per-element failures (successes are counted but not listed). Streaming clients (Accept: text/event-stream) additionally get one `notifications/progress` frame per element (subject to a 60Hz wire-level throttle); non-streaming clients get the same terminal envelope without the intermediate frames. `queue: true` and the field-rewrite options (`set`, `to`, `ifEmpty`, `ifInvalid`, `propagateTo`, `toDefault`, `setEnabledForSite`) are not supported; use `craft_command` for raw controller access.
 
 **Annotations:**
 
@@ -3059,7 +3059,7 @@ Content health reports. Read modes: `relations` lists broken relational referenc
 
 **Edition:** Free
 
-Export entries to a structured JSON envelope suitable for cross-environment sync. Free mode: `export` returns the envelope (filter by `section`, `id`, `site`). Pro mode: `import` consumes the same envelope, validates each entry against the target section's field layout, and saves create/update by uid. `import` defaults to `dryRun: true` — pass `dryRun: false` to commit. Per-item permission `saveEntries:{section}`.
+Export entries to a structured JSON envelope suitable for cross-environment sync. Free mode: `export` returns the envelope (filter by `section`, `id`, `site`). Pro mode: `import` consumes the same envelope, validates each entry against the target section's field layout, and saves create/update by uid. `import` defaults to `dryRun: true`; pass `dryRun: false` to commit. Per-item permission `saveEntries:{section}`.
 
 **Annotations:**
 
@@ -3093,7 +3093,7 @@ Export entries to a structured JSON envelope suitable for cross-environment sync
         },
         "siteHandle": {
             "type": "string",
-            "description": "Site handle override for `import` \u2014 picks the per-entry site context if the payload's `site` is unknown to this install."
+            "description": "Site handle override for `import`: picks the per-entry site context if the payload's `site` is unknown to this install."
         },
         "payload": {
             "type": "object",
