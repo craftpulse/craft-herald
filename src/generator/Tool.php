@@ -124,13 +124,13 @@ class Tool extends BaseGenerator
 
         $class->setComment(<<<COMMENT
 =========================================================================
-`{$this->_toolName}` tool — TODO: describe what this tool does in one
-to three sentences. Answer "when would I call this?" — avoid
+`{$this->_toolName}` tool. TODO: describe what this tool does in one
+to three sentences. Answer "when would I call this?" and avoid
 implementation detail; describe the user-visible effect.
 
 Attributes: add `#[Title('Human Readable Name')]` for the display name
 shown to clients, and swap/extend the behavioural attributes below as
-the tool actually behaves — `#[IsDestructive]` if it mutates or deletes,
+the tool actually behaves: `#[IsDestructive]` if it mutates or deletes,
 `#[IsOpenWorld]` if it reaches outside this Craft install,
 `#[IsStdioOnly]` to forbid the HTTP transport. Defaults assume a
 read-only, idempotent, closed-world tool.
@@ -172,13 +172,13 @@ BODY);
         $class->getMethod('execute')
             ->setComment("@inheritdoc\n\n@author CraftPulse\n@since  5.0.0")
             ->setBody(<<<'BODY'
-// TODO: implement. Return a JSON-serialisable associative array — the
+// TODO: implement. Return a JSON-serialisable associative array; the
 // dispatcher wraps it in the MCP `content[]` envelope (and emits it as
 // `structuredContent` when you declare an `outputSchema()`). Throw a
 // `ToolException` for expected tool-level failures (bad input, missing
 // entity, permission denied); the dispatcher renders those as an
 // `isError: true` result the LLM can self-correct against. Let any
-// other exception propagate — it becomes a JSON-RPC internal error.
+// other exception propagate: it becomes a JSON-RPC internal error.
 // For long-running work, return a `\Generator` instead and yield
 // progress frames (see `StreamableToolInterface`).
 return [
